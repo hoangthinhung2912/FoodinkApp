@@ -1,0 +1,154 @@
+<app-header></app-header>
+<app-slider></app-slider>
+<div class="container">
+  <div class="product-tab-list-wrap text-center mb-40">
+    <div class="product-tab-list nav">
+      <a class="active" href="#tab1" data-toggle="tab">
+        <h4>All </h4>
+      </a>
+      <a href="#tab2" data-toggle="tab">
+        <h4>Food </h4>
+      </a>
+      <a href="#tab3" data-toggle="tab">
+        <h4> Drink </h4>
+      </a>
+    </div>
+    <p>Typi non habent claritatem insitam est usus legentis in qui facit eorum claritatem, investigationes
+      demonstraverunt lectores legere me lius quod legunt saepius.</p>
+  </div>
+</div>
+<div class="container">
+  <div class="products-wrap">
+    <div class="product-item">
+      <div class="item">
+        <img src="assets/img/product/product-1.jpg" alt="">
+        <div class="item-info">
+          <p>NAME PRODUCT HERE</p>
+          <p>$5.00</p>
+        </div>
+        <div class="item-action">
+          <div class="d-flex mb-3">
+            <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
+            <div class="p-2">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="p-2">
+              <i class="fas fa-arrows-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product-item">
+      <div class="item">
+        <img src="assets/img/product/product-1.jpg" alt="">
+        <div class="item-info">
+          <p>NAME PRODUCT HERE</p>
+          <p>$5.00</p>
+        </div>
+        <div class="item-action">
+          <div class="d-flex mb-3">
+            <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
+            <div class="p-2">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="p-2">
+              <i class="fas fa-arrows-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product-item">
+      <div class="item">
+        <img src="assets/img/product/product-1.jpg" alt="">
+        <div class="item-info">
+          <p>NAME PRODUCT HERE</p>
+          <p>$5.00</p>
+        </div>
+        <div class="item-action">
+          <div class="d-flex mb-3">
+            <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
+            <div class="p-2">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="p-2">
+              <i class="fas fa-arrows-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product-item">
+      <div class="item">
+        <img src="assets/img/product/product-1.jpg" alt="">
+        <div class="item-info">
+          <p>NAME PRODUCT HERE</p>
+          <p>$5.00</p>
+        </div>
+        <div class="item-action">
+          <div class="d-flex mb-3">
+            <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
+            <div class="p-2">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="p-2">
+              <i class="fas fa-arrows-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="product-item">
+      <div class="item">
+        <img src="assets/img/product/product-1.jpg" alt="">
+        <div class="item-info">
+          <p class="name">NAME PRODUCT HERE</p>
+          <p>$5.00</p>
+        </div>
+        <div class="item-action">
+          <div class="d-flex mb-3">
+            <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
+            <div class="p-2">
+              <i class="far fa-heart"></i>
+            </div>
+            <div class="p-2">
+              <i class="fas fa-arrows-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container best-food-wrap">
+  <div class="title">BEST FOOD & DRINK</div>
+  <owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']" >
+    <div class="item" *ngFor="let image of myCarouselImages;let i = index">
+      <div>
+        <div class="product-item">
+          <div class="item">
+            <img src='assets/img/product/product-1.jpg' alt="">
+            <div class="item-info">
+              <p class="name">NAME PRODUCT HERE</p>
+              <p>$5.00</p>
+            </div>
+            <div class="item-action">
+              <div class="d-flex mb-3">
+                <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
+                <div class="p-2">
+                  <i class="far fa-heart"></i>
+                </div>
+                <div class="p-2">
+                  <i class="fas fa-arrows-alt"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </owl-carousel>
+</div>
+<app-footer></app-footer>
+

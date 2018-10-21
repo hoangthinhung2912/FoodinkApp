@@ -1,0 +1,41 @@
+<owl-carousel [options]="slideOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']" >
+  <div class="item" *ngFor="let image of images;let i = index">
+    <img src="{{image}}" alt="">
+  </div>
+</owl-carousel>
+
+<div class="container caption">
+  <div class="slider-content slider-animated-1">
+    <h1 class="animated fadeInLeft">Drink & Heathy Food</h1>
+    <h3 class="animated fadeInLeft">Fresh Heathy and Organic.</h3>
+    <div class="slider-btn mt-90 fadeInLeft">
+      <a href="" class="fadeInLeft">Order Now</a>
+    </div>
+  </div>
+</div>
+
+<div class="banner-area row-col-decrease pt-100 pb-75 clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 right-banner">
+        <div class="single-banner">
+          <div class="hover-style">
+            <a href="#"><img src="assets/img/banner/banner-1.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 left-banner">
+        <div class="single-banner">
+          <div class="hover-style">
+            <a href="#"><img src="assets/img/banner/banner-2.jpg" alt=""></a>
+          </div>
+        </div>
+        <div class="single-banner">
+          <div class="hover-style">
+            <a href="#"><img src="assets/img/banner/banner-3.jpg" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

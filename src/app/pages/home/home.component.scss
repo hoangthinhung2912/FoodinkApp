@@ -1,0 +1,200 @@
+
+
+.product-tab-list {
+  justify-content: center;
+
+  > a {
+    position: relative;
+
+    &::before {
+      background-color: #d4d4d4;
+      content: "";
+      height: 22px;
+      position: absolute;
+      right: -2px;
+      top: 4px;
+      transform: rotate(23deg);
+      width: 3px;
+    }
+
+    &:last-child::before {
+      display: none;
+    }
+
+    h4 {
+      color: #000;
+      display: inline-block;
+      font-size: 24px;
+      font-weight: 500;
+      margin: 0 27px;
+      position: relative;
+    }
+
+    &.active {
+      h4 {
+        color: #e02c2b;
+      }
+    }
+  }
+}
+
+.product-tab-list-wrap {
+  margin-top: 100px;
+  > p {
+    margin: 22px auto 0;
+    width: 60%;
+  }
+}
+
+.product-item {
+  width: calc(100%/4 - 24px);
+  margin: 10px 10px;
+  display: inline-block;
+  &:nth-child(5n) {
+    margin-right: 0px !important;
+  }
+
+  .item {
+    img {
+      width: 100%;
+      object-fit: cover;
+      position: relative;
+    }
+
+    .item-info {
+      margin-top: 20px;
+      font-weight: bold;
+
+      p {
+        margin: 5px;
+      }
+    }
+
+    .item-action {
+      width: calc(100%/5 - 68px);
+      position: absolute;
+      margin-top: -115px;
+      display: none;
+    }
+  }
+
+  &:hover {
+    .item {
+      cursor: pointer;
+      .item-action {
+        display: block;
+        i {
+
+        }
+      }
+      .item-info {
+      }
+    }
+  }
+}
+
+.products-wrap {
+  margin-top: 100px;
+  float: left;
+  margin-bottom: 100px;
+
+}
+
+.best-food-wrap {
+  clear: both;
+
+  .title {
+    font-size: 30px;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .product-item {
+    width:calc(100%);
+
+    .item {
+      padding: 0px 15px;
+    }
+  }
+
+  /deep/.owl-nav {
+    position: absolute;
+    top: -75px;
+    font-size: 50px;
+    right: 0px;
+    button {
+      outline: none;
+    }
+    button:hover {
+      background: none;
+      color: grey;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+
+  /* show 3 items */
+  .carousel-inner .active,
+  .carousel-inner .active + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item  {
+    display: block;
+  }
+
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+    transition: none;
+  }
+
+  .carousel-inner .carousel-item-next,
+  .carousel-inner .carousel-item-prev {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    position: absolute;
+    top: 0;
+    right: -25%;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+
+  /* left or forward direction */
+  .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+  .carousel-item-next.carousel-item-left + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  /* farthest right hidden item must be abso position for animations */
+  .carousel-inner .carousel-item-prev.carousel-item-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    visibility: visible;
+  }
+
+  /* right or prev direction */
+  .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+  .carousel-item-prev.carousel-item-right + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+    position: relative;
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+    display: block;
+    visibility: visible;
+  }
+
+}
