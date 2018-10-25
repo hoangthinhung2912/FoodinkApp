@@ -6,10 +6,10 @@
     </div>
     <ul class="list-unstyled components">
       <li>
-        <a id="stores" class="tab" (click)="tabClick($event)">Stores</a>
+        <a id="stores" class="active tab" (click)="tabClick($event)">Stores</a>
       </li>
       <li>
-        <a id="products" class="active tab" (click)="tabClick($event)">Products</a>
+        <a id="products" class="tab" (click)="tabClick($event)">Products</a>
       </li>
       <li>
         <a id="order" class="tab" (click)="tabClick($event)">Orders</a>
@@ -24,7 +24,7 @@
   <div id="content">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="x($event)">
+        <button type="button" id="sidebarCollapse" class="btn btn-info" (click)="x()">
           <i class="fa fa-outdent"></i>
         </button>
         <div class="collapse navbar-collapse">
