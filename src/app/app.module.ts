@@ -10,10 +10,8 @@ import { SliderComponent } from './components/slider/slider.component';
 import { OwlModule } from "angular-owl-carousel";
 import { StoreComponent } from './pages/store/store.component';
 import { ProductsComponent } from './components/store/products/products.component';
-import {
-  DxButtonModule, DxSelectBoxModule, DxDataGridModule,
-  DxFormModule, DxTextBoxModule, DxValidationGroupModule, DxValidatorModule
-} from 'devExtreme-angular';
+import { DxButtonModule, DxSelectBoxModule, DxDataGridModule,
+  DxFormModule, DxTextBoxModule, DxValidationGroupModule, DxValidatorModule} from 'devextreme-angular';
 import { LoginComponent } from './pages/login/login.component';
 import {ApiService} from "./services/ApiService";
 import {HttpClientModule} from "@angular/common/http";

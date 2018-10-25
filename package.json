@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "next build",
     "start": "node server.js",
     "dev": "ng build",
     "build": "ng build",
@@ -46,6 +47,7 @@
     "@angular/cli": "~7.0.2",
     "@angular/compiler-cli": "~7.0.0",
     "@angular/language-service": "~7.0.0",
+    "@types/devextreme": "^16.2.1",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
