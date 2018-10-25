@@ -1,11 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import {map, catchError} from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable()
 export class ApiService {
-  private baseURL = '';
+  private baseURL = 'https://fudink.herokuapp.com/api';
 
   constructor(private http: HttpClient) {
   }
@@ -15,8 +16,13 @@ export class ApiService {
   }
 
   get headers(): HttpHeaders {
+    let token = '';
+    if (localStorage.getItem('token')) {
+      token = localStorage.getItem('token')
+    }
     return new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': token
     });
   }
 
@@ -31,8 +37,7 @@ export class ApiService {
   }
 
   get(url: string): Observable<any> {
-    return this.http
-      .get(`${this.fixUrl(url)}`, this.options)
+    return this.http.get(`${this.fixUrl(url)}`, this.options)
       .pipe(catchError(this.handleError));
   }
 
@@ -47,7 +52,7 @@ export class ApiService {
     const options = {headers: this.headers, params: params};
     return this.http
       .get(`${this.fixUrl(url)}`, options)
-      .pipe(map(this.extractData), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   getWithObjectAsQueryString(url: string, param: any): Observable<any> {
@@ -61,7 +66,7 @@ export class ApiService {
     const options = {headers: this.headers, params: params};
     return this.http
       .get(`${this.fixUrl(url)}`, options)
-      .pipe(map(this.extractData), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   post(url: string, param: any): Observable<any> {
@@ -96,7 +101,7 @@ export class ApiService {
     const options = {headers: this.headers, params: params};
     return this.http
       .delete(`${this.fixUrl(url)}`, options)
-      .pipe(map(this.extractData), catchError(this.handleError));
+      .pipe(catchError(this.handleError));
   }
 
   deleteWithKey(url: string, key: string, val: string): Observable<any> {

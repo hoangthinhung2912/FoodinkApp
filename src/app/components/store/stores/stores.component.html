@@ -1,0 +1,32 @@
+<div>
+  <dx-data-grid
+    [dataSource]="stores"
+    keyExpr="id"
+    [remoteOperations]="false"
+    [allowColumnReordering]="true"
+    [rowAlternationEnabled]="true"
+    [showBorders]="true">
+    <dxo-search-panel
+      [visible]="true"
+      [highlightCaseSensitive]="true"
+    ></dxo-search-panel>
+    <dxi-column dataField="name"></dxi-column>
+    <dxi-column dataField="email"></dxi-column>
+    <dxi-column dataField="phone"></dxi-column>
+    <dxi-column dataField="address"></dxi-column>
+    <dxi-column dataField="open_at" dataType="date"></dxi-column>
+    <dxi-column dataField="close_at" dataType="date"></dxi-column>
+    <dxi-column dataField="description"></dxi-column>
+    <dxi-column dataField="status"></dxi-column>
+    <dxi-column dataField="pictures" cellTemplate="cellTemplates"></dxi-column>
+    <dxi-column></dxi-column>
+    <div *dxTemplate="let data of 'cellTemplates'">
+      <img [src]="data.value"/>
+    </div>
+    <dxo-paging [pageSize]="5"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[5, 10, 15]"
+    ></dxo-pager>
+  </dx-data-grid>
+</div>

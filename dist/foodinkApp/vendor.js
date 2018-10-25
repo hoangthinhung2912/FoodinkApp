@@ -57811,7 +57811,9 @@ var ActivatedRoute = /** @class */ (function () {
     Object.defineProperty(ActivatedRoute.prototype, "paramMap", {
         get: function () {
             if (!this._paramMap) {
-                this._paramMap = this.params.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (p) { return convertToParamMap(p); }));
+                this._paramMap = this.params.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (p) {
+                  return convertToParamMap(p);
+                }));
             }
             return this._paramMap;
         },
@@ -57822,7 +57824,9 @@ var ActivatedRoute = /** @class */ (function () {
         get: function () {
             if (!this._queryParamMap) {
                 this._queryParamMap =
-                    this.queryParams.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (p) { return convertToParamMap(p); }));
+                    this.queryParams.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (p) {
+                      return convertToParamMap(p);
+                    }));
             }
             return this._queryParamMap;
         },

@@ -1,0 +1,27 @@
+<div>
+  <div class="action-wrap d-flex justify-content-end">
+    <div class="col-md-4 col-lg-2 col-3">
+      <dx-select-box [dataSource]="selectBoxDataSource"></dx-select-box>
+    </div>
+  </div>
+  <dx-data-grid
+    [dataSource]="customers"
+    keyExpr="ID"
+    [remoteOperations]="false"
+    [allowColumnReordering]="true"
+    [rowAlternationEnabled]="true"
+    [showBorders]="true">
+    <dxo-search-panel
+      [visible]="true"
+      [highlightCaseSensitive]="true"
+    ></dxo-search-panel>
+    <dxi-column dataField="CompanyName"></dxi-column>
+    <dxi-column dataField="City"></dxi-column>
+    <dxi-column dataField="State"></dxi-column>
+    <dxo-paging [pageSize]="1"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+      [allowedPageSizes]="[8, 12, 20]"
+    ></dxo-pager>
+  </dx-data-grid>
+</div>
