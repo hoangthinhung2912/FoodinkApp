@@ -38,6 +38,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_home_home_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/home/home.component */ "./src/app/pages/home/home.component.ts");
 /* harmony import */ var _pages_store_store_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/store/store.component */ "./src/app/pages/store/store.component.ts");
 /* harmony import */ var _pages_login_login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/login/login.component */ "./src/app/pages/login/login.component.ts");
+/* harmony import */ var _pages_product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/product-detail/product-detail.component */ "./src/app/pages/product-detail/product-detail.component.ts");
+/* harmony import */ var _pages_cart_detail_cart_detail_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/cart-detail/cart-detail.component */ "./src/app/pages/cart-detail/cart-detail.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -49,11 +51,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: _pages_home_home_component__WEBPACK_IMPORTED_MODULE_2__["HomeComponent"] },
     { path: 'dashboard/store', component: _pages_store_store_component__WEBPACK_IMPORTED_MODULE_3__["StoreComponent"] },
-    { path: 'login', component: _pages_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] }
+    { path: 'login', component: _pages_login_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"] },
+    { path: 'products/detail', component: _pages_product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_5__["ProductDetailComponent"] },
+    { path: 'home/carts', component: _pages_cart_detail_cart_detail_component__WEBPACK_IMPORTED_MODULE_6__["CartDetailComponent"] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -157,12 +163,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./services/ApiService */ "./src/app/services/ApiService.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _components_store_stores_stores_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/store/stores/stores.component */ "./src/app/components/store/stores/stores.component.ts");
+/* harmony import */ var _components_store_orders_orders_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/store/orders/orders.component */ "./src/app/components/store/orders/orders.component.ts");
+/* harmony import */ var _components_store_profile_profile_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/store/profile/profile.component */ "./src/app/components/store/profile/profile.component.ts");
+/* harmony import */ var _pages_product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./pages/product-detail/product-detail.component */ "./src/app/pages/product-detail/product-detail.component.ts");
+/* harmony import */ var _pages_cart_detail_cart_detail_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./pages/cart-detail/cart-detail.component */ "./src/app/pages/cart-detail/cart-detail.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -194,6 +210,10 @@ var AppModule = /** @class */ (function () {
                 _components_store_products_products_component__WEBPACK_IMPORTED_MODULE_10__["ProductsComponent"],
                 _pages_login_login_component__WEBPACK_IMPORTED_MODULE_12__["LoginComponent"],
                 _components_store_stores_stores_component__WEBPACK_IMPORTED_MODULE_15__["StoresComponent"],
+                _components_store_orders_orders_component__WEBPACK_IMPORTED_MODULE_16__["OrdersComponent"],
+                _components_store_profile_profile_component__WEBPACK_IMPORTED_MODULE_17__["ProfileComponent"],
+                _pages_product_detail_product_detail_component__WEBPACK_IMPORTED_MODULE_18__["ProductDetailComponent"],
+                _pages_cart_detail_cart_detail_component__WEBPACK_IMPORTED_MODULE_19__["CartDetailComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -206,7 +226,15 @@ var AppModule = /** @class */ (function () {
                 devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxValidationGroupModule"],
                 devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxValidatorModule"],
                 devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxDataGridModule"],
-                _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClientModule"]
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_14__["HttpClientModule"],
+                devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxButtonModule"], devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxPopupModule"],
+                devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxNumberBoxModule"],
+                devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxDateBoxModule"],
+                devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxTextAreaModule"],
+                devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxFileUploaderModule"],
+                devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxCheckBoxModule"],
+                devextreme_angular__WEBPACK_IMPORTED_MODULE_11__["DxRadioGroupModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_20__["FormsModule"]
             ],
             providers: [
                 _services_ApiService__WEBPACK_IMPORTED_MODULE_13__["ApiService"]
@@ -291,7 +319,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-dark bg-dark head-nav\">\n  <div class=\"container\">\n    <div class=\"navbar-expand mr-auto\">\n      <div class=\"message\">Message</div>\n    </div>\n    <div class=\"navbar-expand ml-auto navbar-nav\">\n      <div class=\"navbar-nav\">\n        <div class=\"dropdown\">\n          <div class=\"drop-wrap nav-item\">Setting<i class=\"fa fa-angle-down\"></i></div>\n          <div class=\"dropdown-content\">\n            <a href=\"#\">Login</a>\n            <a href=\"#\">Register</a>\n            <a href=\"#\">My Account</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</nav>\n\n<nav class=\"navbar navbar-dark bg-light middle-nav\">\n  <div class=\"container\">\n    <div class=\"navbar-expand mr-auto\">\n      <img src=\"../../../assets/img/logo/logo.png\" alt=\"\">\n    </div>\n    <div class=\"navbar-expand ml-auto navbar-nav\">\n      <div class=\"navbar-nav\">\n        <a href=\"\">\n          <div class=\"d-flex justify-content-between\">\n            <div class=\"icon\">\n              <i class=\"far fa-user\"></i>\n            </div>\n            <div class=\"text\">\n              Register or <span>Sign in</span>\n            </div>\n          </div>\n        </a>\n        <a href=\"\">\n          <div class=\"d-flex justify-content-between\">\n            <div class=\"icon\">\n              <i class=\"far fa-heart\"></i>\n            </div>\n            <div class=\"text\">\n              Your <span>Wishlist</span>\n            </div>\n          </div>\n        </a>\n        <a href=\"\">\n          <div class=\"d-flex justify-content-between\">\n            <div class=\"icon\">\n              <i class=\"fa fa-shopping-cart\"></i>\n            </div>\n            <div class=\"text\">\n              My Cart <span>$5000</span>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n</nav>\n\n<nav class=\"navbar navbar-expand-lg bg-dark fix-nav\">\n  <div class=\"container\">\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo01\"\n            aria-controls=\"navbarTogglerDemo01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo01\">\n      <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" href=\"#\">HOME<span class=\"sr-only\">(current)</span></a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">FOOD</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">DRINK</a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">CONTACT US</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n\n\n\n"
+module.exports = "<nav class=\"navbar navbar-dark bg-dark head-nav\">\n  <div class=\"container\">\n    <div class=\"navbar-expand mr-auto\">\n      <div class=\"message\">Message</div>\n    </div>\n    <div class=\"navbar-expand ml-auto navbar-nav\">\n      <div class=\"navbar-nav\">\n        <div class=\"dropdown\">\n          <div class=\"drop-wrap nav-item\">Setting<i class=\"fa fa-angle-down\"></i></div>\n          <div class=\"dropdown-content\">\n            <a routerLink=\"/login\">Login</a>\n            <a href=\"#\">Register</a>\n            <a href=\"#\">My Account</a>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</nav>\n\n<nav class=\"navbar navbar-dark bg-light middle-nav\">\n  <div class=\"container\">\n    <div class=\"navbar-expand mr-auto\">\n      <img src=\"../../../assets/img/logo/logo.png\" alt=\"\">\n    </div>\n    <div class=\"navbar-expand ml-auto navbar-nav\">\n      <div class=\"navbar-nav\">\n        <a href=\"\">\n          <div class=\"d-flex justify-content-between\">\n            <div class=\"icon\">\n              <i class=\"far fa-user\"></i>\n            </div>\n            <div class=\"text\">\n              Register or <span>Sign in</span>\n            </div>\n          </div>\n        </a>\n        <a href=\"\">\n          <div class=\"d-flex justify-content-between\">\n            <div class=\"icon\">\n              <i class=\"far fa-heart\"></i>\n            </div>\n            <div class=\"text\">\n              Your <span>Wishlist</span>\n            </div>\n          </div>\n        </a>\n        <a routerLink=\"/home/carts\">\n          <div class=\"d-flex justify-content-between\">\n            <div class=\"icon\">\n              <i class=\"fa fa-shopping-cart\"></i>\n            </div>\n            <div class=\"text\">\n              My Cart <span>$5000</span>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n</nav>\n\n<nav class=\"navbar navbar-expand-lg bg-dark fix-nav\">\n  <div class=\"container\">\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo01\"\n            aria-controls=\"navbarTogglerDemo01\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo01\">\n      <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\n        <li class=\"nav-item active\">\n          <a class=\"nav-link\" routerLink=\"/home\">HOME<span class=\"sr-only\">(current)</span></a>\n        </li>\n        <li class=\"nav-item\">\n          <a class=\"nav-link\" href=\"#\">CONTACT US</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n</nav>\n\n\n\n"
 
 /***/ }),
 
@@ -415,6 +443,123 @@ var SliderComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/components/store/orders/orders.component.html":
+/*!***************************************************************!*\
+  !*** ./src/app/components/store/orders/orders.component.html ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"action-wrap d-flex justify-content-end\">\n    <div class=\"col-md-4 col-lg-2 col-3\">\n      <dx-select-box\n        [dataSource]=\"stores\"\n        displayExpr=\"name\"\n        valueExpr=\"id\"\n        (onValueChanged)=\"onChangStore($event)\"></dx-select-box>\n    </div>\n  </div>\n  <dx-data-grid\n    [dataSource]=\"orders\"\n    keyExpr=\"id\"\n    [remoteOperations]=\"false\"\n    [allowColumnReordering]=\"true\"\n    [rowAlternationEnabled]=\"true\"\n    [showBorders]=\"true\"\n    [masterDetail]=\"{ enabled: true, template: 'detail' }\">\n    <dxo-search-panel\n      [visible]=\"true\"\n      [highlightCaseSensitive]=\"true\"\n    ></dxo-search-panel>\n    <dxi-column dataField=\"customer.name\" caption=\"Customer\"></dxi-column>\n    <dxi-column dataField=\"customer.phone\" caption=\"Phone\"></dxi-column>\n    <dxi-column dataField=\"address\"></dxi-column>\n    <dxi-column dataField=\"total\" cellTemplate=\"totalTemplate\">\n      <div *dxTemplate=\"let item of 'totalTemplate'\">\n        {{item.value}}VND\n      </div>\n    </dxi-column>\n    <dxi-column dataField=\"status\"></dxi-column>\n    <dxi-column cellTemplate=\"actionTemplates\" dataField=\"id\" caption=\"Action\" alignment=\"center\">\n      <div *dxTemplate=\"let data of 'actionTemplates'\">\n        <span (click)=\"onAcceptOrder(data)\">Accept</span>\n        <span (click)=\"onRejectOrder(data)\">Refuse</span>\n      </div>\n    </dxi-column>\n    <div *dxTemplate=\"let item of 'detail'\">\n      <div class=\"master-detail-caption\">Products</div>\n      <dx-data-grid\n        [dataSource]=\"item.data.detail_orders\"\n        [showBorders]=\"true\"\n        [columnAutoWidth]=\"true\">\n        <dxi-column dataField=\"product.name\"></dxi-column>\n        <dxi-column dataField=\"size.size\"></dxi-column>\n        <dxi-column dataField=\"price\"></dxi-column>\n        <dxi-column dataField=\"quantity\"></dxi-column>\n      </dx-data-grid>\n    </div>\n    <dxo-paging [pageSize]=\"10\"></dxo-paging>\n    <dxo-pager\n      [showPageSizeSelector]=\"true\"\n    ></dxo-pager>\n  </dx-data-grid>\n</div>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/components/store/orders/orders.component.scss":
+/*!***************************************************************!*\
+  !*** ./src/app/components/store/orders/orders.component.scss ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc3RvcmUvb3JkZXJzL29yZGVycy5jb21wb25lbnQuc2NzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/components/store/orders/orders.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/components/store/orders/orders.component.ts ***!
+  \*************************************************************/
+/*! exports provided: OrdersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrdersComponent", function() { return OrdersComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/ApiService */ "./src/app/services/ApiService.ts");
+/* harmony import */ var devextreme_ui_dialog__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! devextreme/ui/dialog */ "./node_modules/devextreme/ui/dialog.js");
+/* harmony import */ var devextreme_ui_dialog__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(devextreme_ui_dialog__WEBPACK_IMPORTED_MODULE_2__);
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var OrdersComponent = /** @class */ (function () {
+    function OrdersComponent(apiService) {
+        this.apiService = apiService;
+        this.stores = new Array();
+    }
+    OrdersComponent.prototype.ngOnInit = function () {
+        this.loadStores();
+    };
+    OrdersComponent.prototype.loadOrders = function (idStore) {
+        var _this = this;
+        this.idStore = idStore;
+        this.apiService.get(this.apiService.apiUrl + "/dashboard/stores/" + this.idStore + "/orders").subscribe(function (data) {
+            _this.orders = data.orders;
+        });
+    };
+    OrdersComponent.prototype.loadStores = function () {
+        var _this = this;
+        this.apiService.get(this.apiService.apiUrl + "/dashboard/stores").subscribe(function (data) {
+            _this.stores = data.stores;
+        });
+    };
+    OrdersComponent.prototype.onChangStore = function (e) {
+        this.loadOrders(e.value);
+    };
+    OrdersComponent.prototype.onAcceptOrder = function (data) {
+        var _this = this;
+        var message = 'Do you want to accept this order?';
+        var title = 'Accept Order';
+        var value = {
+            status: 'accept'
+        };
+        Object(devextreme_ui_dialog__WEBPACK_IMPORTED_MODULE_2__["confirm"])(message, title).then(function (result) {
+            if (result) {
+                _this.apiService.patch(_this.apiService.apiUrl + "/dashboard/stores/" + _this.idStore + "/orders/" + data.value, value).subscribe(function (x) {
+                    alert(x);
+                });
+            }
+        });
+    };
+    OrdersComponent.prototype.onRejectOrder = function (data) {
+        var _this = this;
+        var message = 'Do you want to reject this order?';
+        var title = 'Reject Order';
+        var value = {
+            status: 'reject'
+        };
+        Object(devextreme_ui_dialog__WEBPACK_IMPORTED_MODULE_2__["confirm"])(message, title).then(function (result) {
+            if (result) {
+                _this.apiService.patch(_this.apiService.apiUrl + "/dashboard/stores/" + _this.idStore + "/orders/" + data.value, value).subscribe(function (x) {
+                    alert(x);
+                });
+            }
+        });
+    };
+    OrdersComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-orders',
+            template: __webpack_require__(/*! ./orders.component.html */ "./src/app/components/store/orders/orders.component.html"),
+            styles: [__webpack_require__(/*! ./orders.component.scss */ "./src/app/components/store/orders/orders.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_services_ApiService__WEBPACK_IMPORTED_MODULE_1__["ApiService"]])
+    ], OrdersComponent);
+    return OrdersComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/store/products/products.component.html":
 /*!*******************************************************************!*\
   !*** ./src/app/components/store/products/products.component.html ***!
@@ -422,7 +567,7 @@ var SliderComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <div class=\"action-wrap d-flex justify-content-end\">\n    <div class=\"col-md-4 col-lg-2 col-3\">\n      <dx-select-box [dataSource]=\"selectBoxDataSource\"></dx-select-box>\n    </div>\n  </div>\n  <dx-data-grid\n    [dataSource]=\"customers\"\n    keyExpr=\"ID\"\n    [remoteOperations]=\"false\"\n    [allowColumnReordering]=\"true\"\n    [rowAlternationEnabled]=\"true\"\n    [showBorders]=\"true\">\n    <dxo-search-panel\n      [visible]=\"true\"\n      [highlightCaseSensitive]=\"true\"\n    ></dxo-search-panel>\n    <dxi-column dataField=\"CompanyName\"></dxi-column>\n    <dxi-column dataField=\"City\"></dxi-column>\n    <dxi-column dataField=\"State\"></dxi-column>\n    <dxo-paging [pageSize]=\"1\"></dxo-paging>\n    <dxo-pager\n      [showPageSizeSelector]=\"true\"\n      [allowedPageSizes]=\"[8, 12, 20]\"\n    ></dxo-pager>\n  </dx-data-grid>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n  <div class=\"action-wrap d-flex justify-content-between\">\n    <div>\n      <dx-button type=\"default\" text=\"ADD\" (onClick)=\"onAdd()\"></dx-button>\n    </div>\n    <div class=\"col-md-4 col-lg-2 col-3\">\n      <dx-select-box\n        [dataSource]=\"stores\"\n        displayExpr=\"name\"\n        valueExpr=\"id\"\n        (onValueChanged)=\"onChangStore($event)\"></dx-select-box>\n    </div>\n  </div>\n  <dx-data-grid\n    [dataSource]=\"products\"\n    keyExpr=\"id\"\n    [remoteOperations]=\"false\"\n    [allowColumnReordering]=\"true\"\n    [rowAlternationEnabled]=\"true\"\n    [showBorders]=\"true\"\n    [masterDetail]=\"{ enabled: true, template: 'detail' }\">\n    <dxo-search-panel\n      [visible]=\"true\"\n      [highlightCaseSensitive]=\"true\"\n    ></dxo-search-panel>\n    <dxi-column dataField=\"name\"></dxi-column>\n    <dxi-column dataField=\"product_type\"></dxi-column>\n    <dxi-column dataField=\"avg_rate_score\"></dxi-column>\n    <dxi-column dataField=\"category.name\"></dxi-column>\n    <dxi-column dataField=\"sizes\" cellTemplate=\"sizeTemplate\">\n      <div *dxTemplate=\"let size of 'sizeTemplate'\">\n        <div *ngFor=\"let item of size.value\">\n          {{item.size}}-{{item.price}}\n        </div>\n      </div>\n    </dxi-column>\n    <dxi-column dataField=\"description\"></dxi-column>\n    <dxi-column cellTemplate=\"actionTemplates\" dataField=\"id\" caption=\"Action\" alignment=\"center\">\n      <div *dxTemplate=\"let data of 'actionTemplates'\">\n        <i class=\"fa fa-edit edit-btn action-btn\" (click)=\"onEdit(data)\"></i>\n        <i class=\"fa fa-trash\" (click)=\"onDelete(data)\"></i>\n      </div>\n    </dxi-column>\n    <div *dxTemplate=\"let item of 'detail'\">\n      <div class=\"master-detail-caption\">Rate</div>\n      <dx-data-grid\n        [dataSource]=\"item.data.rates\"\n        [showBorders]=\"true\"\n        [columnAutoWidth]=\"true\">\n        <dxi-column dataField=\"rate\"></dxi-column>\n        <dxi-column dataField=\"content\"></dxi-column>\n      </dx-data-grid>\n    </div>\n    <dxo-paging [pageSize]=\"10\"></dxo-paging>\n    <dxo-pager\n      [showPageSizeSelector]=\"true\"\n    ></dxo-pager>\n  </dx-data-grid>\n</div>\n\n<!-- Products Details -->\n<dx-popup\n  title=\"Popup Title\"\n  [(visible)]=\"isDetailPopup\"\n  [width]=\"700\"\n  [height]=\"550\">\n  <div *dxTemplate=\"let data of 'content'\" style=\"overflow-y: auto; overflow-x: hidden; \">\n    <dx-validation-group>\n      <div class=\"row\">\n        <div class=\"col-md-6\">\n          <div class=\"field\">\n            <div class=\"label\">Name</div>\n            <div class=\"value\">\n              <dx-text-box [(value)]=\"product.name\">\n                <dx-validator>\n                  <dxi-validation-rule type=\"required\" message=\"Name is required\"></dxi-validation-rule>\n                </dx-validator>\n              </dx-text-box>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-md-6\">\n          <div class=\"field\">\n            <div class=\"label\">Category</div>\n            <div class=\"value\">\n              <dx-select-box [items]=\"categories\"\n                             [(value)]=\"product.category\"\n                             displayExpr=\"name\"\n                             valueExpr=\"id\">\n                <dx-validator>\n                  <dxi-validation-rule type=\"required\" message=\"Email is required\"></dxi-validation-rule>\n                </dx-validator>\n              </dx-select-box>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-md-6\">\n          <div class=\"field\">\n            <div class=\"label\">Product Type</div>\n            <div class=\"value\">\n              <dx-select-box [items]=\"ProductsType\" [(value)]=\"product.product_type\">\n                <dx-validator>\n                  <dxi-validation-rule type=\"required\" message=\"Product type is required\"></dxi-validation-rule>\n                </dx-validator>\n              </dx-select-box>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-md-12\">\n          <div class=\"field\">\n            <div class=\"label\">Description</div>\n            <div class=\"value\">\n              <dx-text-area [(value)]=\"product.description\"></dx-text-area>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"field\">\n        <div class=\"label\">Sizes</div>\n      </div>\n      <div *ngFor=\"let size of sizes; index as i\" class=\"row size-row\">\n        <div class=\"col-md-6\">\n          <div class=\"field\">\n            <div class=\"value\">\n              <dx-text-box [(value)]=\"size.size\"></dx-text-box>\n            </div>\n          </div>\n        </div>\n        <div class=\"col-md-6\">\n          <div class=\"field\">\n            <div class=\"value\">\n              <dx-text-box [(value)]=\"size.price\"></dx-text-box>\n            </div>\n          </div>\n        </div>\n        <i class=\"fa fa-times-circle\" (click)=\"removeSizeItem(i)\"></i>\n      </div>\n      <div class=\"field\">\n        <dx-button text=\"ADD\" (onClick)=\"onAddSize()\"></dx-button>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-md-12\">\n          <div class=\"field\">\n            <div class=\"label\">\n              Picture\n            </div>\n            <div class=\"value\">\n              <label>\n                <input type=\"file\" (change)=\"fileEvent($event)\">\n                <dx-button text=\"ADD IMAGES\"></dx-button>\n              </label>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"images-wrap d-flex\">\n        <div class=\"item\" *ngFor=\"let item of listFileImages; index as i\">\n          <img [src]=\"safeGetUrl(item.url)\" alt=\"\">\n          <i class=\"fa fa-times-circle\" (click)=\"removeImage(i)\"></i>\n        </div>\n      </div>\n      <div class=\"d-flex justify-content-end btn-actions\">\n        <dx-button text=\"Add\" type=\"success\" (onClick)=\"save($event)\"></dx-button>\n        <dx-button text=\"Cancel\" (onClick)=\"isDetailPopup=false\"></dx-button>\n      </div>\n    </dx-validation-group>\n  </div>\n</dx-popup>\n"
 
 /***/ }),
 
@@ -433,7 +578,7 @@ module.exports = "<div>\n  <div class=\"action-wrap d-flex justify-content-end\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc3RvcmUvcHJvZHVjdHMvcHJvZHVjdHMuY29tcG9uZW50LnNjc3MifQ== */"
+module.exports = ".image-item {\n  width: 100px;\n  height: 100px; }\n\n.images-wrap {\n  position: relative; }\n\n.images-wrap .item {\n    width: 100px;\n    height: 100px;\n    margin-right: 10px; }\n\n.images-wrap .item i {\n      position: absolute;\n      margin-left: -14px;\n      color: greenyellow;\n      font-size: 20px;\n      margin-top: -5px; }\n\n.images-wrap .item img {\n      width: 100%;\n      height: 100%;\n      -o-object-fit: cover;\n         object-fit: cover; }\n\n.field .label {\n  margin-top: 10px; }\n\n.field .value label input {\n  display: none; }\n\n.size-row {\n  margin-right: 15px;\n  position: relative;\n  margin-bottom: 7px; }\n\n.size-row i {\n    position: absolute;\n    left: 99%;\n    top: 10px;\n    font-size: 16px;\n    color: gray; }\n\n.btn-actions dx-button {\n  margin-right: 20px; }\n\n/* width */\n\n::-webkit-scrollbar {\n  width: 4px;\n  border-radius: 10px; }\n\n/* Track */\n\n::-webkit-scrollbar-track {\n  background: #f1f1f1; }\n\n/* Handle */\n\n::-webkit-scrollbar-thumb {\n  background: #888; }\n\n/* Handle on hover */\n\n::-webkit-scrollbar-thumb:hover {\n  background: #555; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zdG9yZS9wcm9kdWN0cy9EOlxcQ29kZVxcQW5ndWxhclxcRm9vZGlua1xcZm9vZGlua0FwcC9zcmNcXGFwcFxcY29tcG9uZW50c1xcc3RvcmVcXHByb2R1Y3RzXFxwcm9kdWN0cy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQVk7RUFDWixjQUFhLEVBQ2Q7O0FBRUQ7RUFDRSxtQkFBa0IsRUFrQm5COztBQW5CRDtJQUdJLGFBQVk7SUFDWixjQUFhO0lBQ2IsbUJBQWtCLEVBYW5COztBQWxCSDtNQU9NLG1CQUFrQjtNQUNsQixtQkFBa0I7TUFDbEIsbUJBQWtCO01BQ2xCLGdCQUFlO01BQ2YsaUJBQWdCLEVBQ2pCOztBQVpMO01BY00sWUFBVztNQUNYLGFBQVk7TUFDWixxQkFBaUI7U0FBakIsa0JBQWlCLEVBQ2xCOztBQUlMO0VBRUksaUJBQWdCLEVBQ2pCOztBQUhIO0VBT1EsY0FBYSxFQUNkOztBQUtQO0VBQ0UsbUJBQWtCO0VBQ2xCLG1CQUFrQjtFQUNsQixtQkFBa0IsRUFRbkI7O0FBWEQ7SUFLSSxtQkFBa0I7SUFDbEIsVUFBUztJQUNULFVBQVM7SUFDVCxnQkFBZTtJQUNmLFlBQVcsRUFDWjs7QUFHSDtFQUVJLG1CQUFrQixFQUNuQjs7QUFHSCxXQUFXOztBQUNYO0VBQ0UsV0FBVTtFQUNWLG9CQUFtQixFQUNwQjs7QUFFRCxXQUFXOztBQUNYO0VBQ0Usb0JBQW1CLEVBQ3BCOztBQUVELFlBQVk7O0FBQ1o7RUFDRSxpQkFBZ0IsRUFDakI7O0FBRUQscUJBQXFCOztBQUNyQjtFQUNFLGlCQUFnQixFQUNqQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc3RvcmUvcHJvZHVjdHMvcHJvZHVjdHMuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuaW1hZ2UtaXRlbSB7XHJcbiAgd2lkdGg6IDEwMHB4O1xyXG4gIGhlaWdodDogMTAwcHg7XHJcbn1cclxuXHJcbi5pbWFnZXMtd3JhcCB7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIC5pdGVtIHtcclxuICAgIHdpZHRoOiAxMDBweDtcclxuICAgIGhlaWdodDogMTAwcHg7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDEwcHg7XHJcbiAgICBpIHtcclxuICAgICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgICBtYXJnaW4tbGVmdDogLTE0cHg7XHJcbiAgICAgIGNvbG9yOiBncmVlbnllbGxvdztcclxuICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgICBtYXJnaW4tdG9wOiAtNXB4O1xyXG4gICAgfVxyXG4gICAgaW1nIHtcclxuICAgICAgd2lkdGg6IDEwMCU7XHJcbiAgICAgIGhlaWdodDogMTAwJTtcclxuICAgICAgb2JqZWN0LWZpdDogY292ZXI7XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG4uZmllbGQge1xyXG4gIC5sYWJlbCB7XHJcbiAgICBtYXJnaW4tdG9wOiAxMHB4O1xyXG4gIH1cclxuICAudmFsdWUge1xyXG4gICAgbGFiZWwge1xyXG4gICAgICBpbnB1dCB7XHJcbiAgICAgICAgZGlzcGxheTogbm9uZTtcclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxufVxyXG5cclxuLnNpemUtcm93IHtcclxuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gIG1hcmdpbi1ib3R0b206IDdweDtcclxuICBpIHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIGxlZnQ6IDk5JTtcclxuICAgIHRvcDogMTBweDtcclxuICAgIGZvbnQtc2l6ZTogMTZweDtcclxuICAgIGNvbG9yOiBncmF5O1xyXG4gIH1cclxufVxyXG5cclxuLmJ0bi1hY3Rpb25zIHtcclxuICBkeC1idXR0b24ge1xyXG4gICAgbWFyZ2luLXJpZ2h0OiAyMHB4O1xyXG4gIH1cclxufVxyXG5cclxuLyogd2lkdGggKi9cclxuOjotd2Via2l0LXNjcm9sbGJhciB7XHJcbiAgd2lkdGg6IDRweDtcclxuICBib3JkZXItcmFkaXVzOiAxMHB4O1xyXG59XHJcblxyXG4vKiBUcmFjayAqL1xyXG46Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrIHtcclxuICBiYWNrZ3JvdW5kOiAjZjFmMWYxO1xyXG59XHJcblxyXG4vKiBIYW5kbGUgKi9cclxuOjotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7XHJcbiAgYmFja2dyb3VuZDogIzg4ODtcclxufVxyXG5cclxuLyogSGFuZGxlIG9uIGhvdmVyICovXHJcbjo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWI6aG92ZXIge1xyXG4gIGJhY2tncm91bmQ6ICM1NTU7XHJcbn1cclxuXHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -449,6 +594,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductsComponent", function() { return ProductsComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/ApiService */ "./src/app/services/ApiService.ts");
+/* harmony import */ var _models_store_storeModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../models/store/storeModel */ "./src/app/models/store/storeModel.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+/* harmony import */ var devextreme_ui_dialog__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! devextreme/ui/dialog */ "./node_modules/devextreme/ui/dialog.js");
+/* harmony import */ var devextreme_ui_dialog__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(devextreme_ui_dialog__WEBPACK_IMPORTED_MODULE_4__);
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -460,27 +609,100 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
+
 var ProductsComponent = /** @class */ (function () {
-    function ProductsComponent(apiService) {
+    function ProductsComponent(apiService, sanitizer) {
         this.apiService = apiService;
-        this.selectBoxDataSource = ["Item 1", "Item 2", "Item 3"];
-        this.customers = [{
-                ID: 1,
-                CompanyName: "Super Mart of the West",
-                City: "Bentonville",
-                State: "Arkansas"
-            }, {
-                ID: 2,
-                CompanyName: "Electronics Depot",
-                City: "Atlanta",
-                State: "Georgia"
-            }];
+        this.sanitizer = sanitizer;
+        this.stores = new Array();
+        this.products = new Array();
+        this.isDetailPopup = false;
+        this.product = new _models_store_storeModel__WEBPACK_IMPORTED_MODULE_2__["productModel"]();
+        this.categories = new Array();
+        this.listFileImages = new Array();
+        this.sizes = new Array();
+        this.ProductsType = ['food', 'drink'];
+        this.getCategories();
     }
     ProductsComponent.prototype.ngOnInit = function () {
         this.loadStores();
     };
+    ProductsComponent.prototype.getCategories = function () {
+        var _this = this;
+        this.apiService.get(this.apiService.apiUrl + "/categories").subscribe(function (data) {
+            _this.categories = data.categories;
+        });
+    };
     ProductsComponent.prototype.loadStores = function () {
+        var _this = this;
         this.apiService.get(this.apiService.apiUrl + "/dashboard/stores").subscribe(function (data) {
+            _this.stores = data.stores;
+        });
+    };
+    ProductsComponent.prototype.loadProducts = function (idStore) {
+        var _this = this;
+        this.idStore = idStore;
+        this.apiService.get(this.apiService.apiUrl + "/dashboard/stores/" + idStore + "/products").subscribe(function (data) {
+            _this.products = data.products;
+        });
+    };
+    ProductsComponent.prototype.onChangStore = function (e) {
+        this.loadProducts(e.value);
+    };
+    ProductsComponent.prototype.onAdd = function () {
+        this.product = new _models_store_storeModel__WEBPACK_IMPORTED_MODULE_2__["productModel"]();
+        this.isDetailPopup = true;
+    };
+    ProductsComponent.prototype.onEdit = function (data) {
+        var _this = this;
+        this.apiService.get(this.apiService.apiUrl + "/dashboard/stores/" + this.idStore + "/products/" + data.value).subscribe(function (data) {
+            _this.product = data.product;
+            _this.sizes = _this.product.sizes;
+        });
+        this.isDetailPopup = true;
+    };
+    ProductsComponent.prototype.safeGetUrl = function (url) {
+        return this.sanitizer.bypassSecurityTrustUrl(url);
+    };
+    ProductsComponent.prototype.fileEvent = function (e) {
+        for (var i = 0; i < e.target.files.length; i++) {
+            var item = {
+                no: i,
+                link: e.target.files[i],
+                is_destroy: 0,
+                url: window.URL.createObjectURL(e.target.files[i])
+            };
+            this.listFileImages.push(item);
+        }
+        console.log(this.listFileImages);
+        e.target.value = null;
+    };
+    ProductsComponent.prototype.removeImage = function (i) {
+        if (i > -1) {
+            this.listFileImages.splice(i, 1);
+        }
+    };
+    ProductsComponent.prototype.removeSizeItem = function (i) {
+        if (i > -1) {
+            this.sizes.splice(i, 1);
+        }
+    };
+    ProductsComponent.prototype.onAddSize = function () {
+        var size = new _models_store_storeModel__WEBPACK_IMPORTED_MODULE_2__["SizeModel"]();
+        this.sizes.push(size);
+    };
+    ProductsComponent.prototype.onDelete = function (data) {
+        var _this = this;
+        var message = 'Do you want to delete this product?';
+        var title = 'Delete Product';
+        Object(devextreme_ui_dialog__WEBPACK_IMPORTED_MODULE_4__["confirm"])(message, title).then(function (result) {
+            if (result) {
+                _this.apiService.delete(_this.apiService.apiUrl + "/dashboard/stores/" + _this.idStore + "/products/" + data.value, _this.product).subscribe(function (data) {
+                    alert(data);
+                });
+            }
         });
     };
     ProductsComponent = __decorate([
@@ -489,9 +711,84 @@ var ProductsComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./products.component.html */ "./src/app/components/store/products/products.component.html"),
             styles: [__webpack_require__(/*! ./products.component.scss */ "./src/app/components/store/products/products.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_ApiService__WEBPACK_IMPORTED_MODULE_1__["ApiService"]])
+        __metadata("design:paramtypes", [_services_ApiService__WEBPACK_IMPORTED_MODULE_1__["ApiService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]])
     ], ProductsComponent);
     return ProductsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/store/profile/profile.component.html":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/store/profile/profile.component.html ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n  <dx-validation-group>\n    <div class=\"row\">\n      <div class=\"col-md-12\">\n        <div class=\"field\">\n          <div class=\"label\">Name</div>\n          <div class=\"value\">\n            <dx-text-box [(value)]=\"profile.name\">\n              <dx-validator>\n                <dxi-validation-rule type=\"required\" message=\"Name is required\"></dxi-validation-rule>\n              </dx-validator>\n            </dx-text-box>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-12\">\n        <div class=\"field\">\n          <div class=\"label\">Email</div>\n          <div class=\"value\">\n            <dx-number-box [(value)]=\"profile.phone\">\n              <dx-validator>\n                <dxi-validation-rule type=\"required\" message=\"Email is required\"></dxi-validation-rule>\n              </dx-validator>\n            </dx-number-box>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-12\">\n        <div class=\"field\">\n          <div class=\"label\">Phone</div>\n          <div class=\"value\">\n            <dx-text-box [(value)]=\"profile.email\" [disabled]=\"true\">\n              <dx-validator>\n                <dxi-validation-rule type=\"required\" message=\"Phone is required\"></dxi-validation-rule>\n                <dxi-validation-rule type=\"email\" message=\"Email is not valid\"></dxi-validation-rule>\n              </dx-validator>\n            </dx-text-box>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-md-12\">\n        <div class=\"field\">\n          <div class=\"label\">Address</div>\n          <div class=\"value\">\n            <dx-text-box [(value)]=\"profile.address\">\n              <dx-validator>\n                <dxi-validation-rule type=\"required\" message=\"Address is required\"></dxi-validation-rule>\n              </dx-validator>\n            </dx-text-box>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"d-flex justify-content-end btn-actions\">\n      <dx-button text=\"Update\" type=\"success\" (onClick)=\"save()\"></dx-button>\n    </div>\n  </dx-validation-group>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/store/profile/profile.component.scss":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/store/profile/profile.component.scss ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc3RvcmUvcHJvZmlsZS9wcm9maWxlLmNvbXBvbmVudC5zY3NzIn0= */"
+
+/***/ }),
+
+/***/ "./src/app/components/store/profile/profile.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/components/store/profile/profile.component.ts ***!
+  \***************************************************************/
+/*! exports provided: ProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _models_account_userLoginModel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../models/account/userLoginModel */ "./src/app/models/account/userLoginModel.ts");
+/* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../services/ApiService */ "./src/app/services/ApiService.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ProfileComponent = /** @class */ (function () {
+    function ProfileComponent(apiService) {
+        this.apiService = apiService;
+        this.profile = new _models_account_userLoginModel__WEBPACK_IMPORTED_MODULE_1__["ProfileModel"]();
+    }
+    ProfileComponent.prototype.ngOnInit = function () {
+        this.profile = JSON.parse(localStorage.getItem('user'));
+    };
+    ProfileComponent.prototype.save = function () {
+        this.apiService.patch(this.apiService.apiUrl + "/profile", this.profile).subscribe(function (data) {
+            console.log(data);
+        });
+    };
+    ProfileComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-profile',
+            template: __webpack_require__(/*! ./profile.component.html */ "./src/app/components/store/profile/profile.component.html"),
+            styles: [__webpack_require__(/*! ./profile.component.scss */ "./src/app/components/store/profile/profile.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_services_ApiService__WEBPACK_IMPORTED_MODULE_2__["ApiService"]])
+    ], ProfileComponent);
+    return ProfileComponent;
 }());
 
 
@@ -505,7 +802,7 @@ var ProductsComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n  <dx-data-grid\n    [dataSource]=\"stores\"\n    keyExpr=\"id\"\n    [remoteOperations]=\"false\"\n    [allowColumnReordering]=\"true\"\n    [rowAlternationEnabled]=\"true\"\n    [showBorders]=\"true\">\n    <dxo-search-panel\n      [visible]=\"true\"\n      [highlightCaseSensitive]=\"true\"\n    ></dxo-search-panel>\n    <dxi-column dataField=\"name\"></dxi-column>\n    <dxi-column dataField=\"email\"></dxi-column>\n    <dxi-column dataField=\"phone\"></dxi-column>\n    <dxi-column dataField=\"address\"></dxi-column>\n    <dxi-column dataField=\"open_at\" dataType=\"date\"></dxi-column>\n    <dxi-column dataField=\"close_at\" dataType=\"date\"></dxi-column>\n    <dxi-column dataField=\"description\"></dxi-column>\n    <dxi-column dataField=\"status\"></dxi-column>\n    <dxi-column dataField=\"pictures\" cellTemplate=\"cellTemplates\"></dxi-column>\n    <dxi-column></dxi-column>\n    <div *dxTemplate=\"let data of 'cellTemplates'\">\n      <img [src]=\"data.value\"/>\n    </div>\n    <dxo-paging [pageSize]=\"5\"></dxo-paging>\n    <dxo-pager\n      [showPageSizeSelector]=\"true\"\n      [allowedPageSizes]=\"[5, 10, 15]\"\n    ></dxo-pager>\n  </dx-data-grid>\n</div>\n"
+module.exports = "<div class=\"stores-wrap\">\n  <div class=\"container-fluid\">\n    <dx-data-grid\n      [dataSource]=\"stores\"\n      [remoteOperations]=\"false\"\n      [allowColumnReordering]=\"true\"\n      [allowColumnResizing]=\"true\"\n      [rowAlternationEnabled]=\"true\"\n      [showBorders]=\"true\">\n      <dxo-search-panel\n        [visible]=\"true\"\n        [highlightCaseSensitive]=\"true\"\n      ></dxo-search-panel>\n      <dxi-column dataField=\"name\" alignment=\"center\"></dxi-column>\n      <dxi-column dataField=\"email\" alignment=\"center\"></dxi-column>\n      <dxi-column dataField=\"phone\" alignment=\"center\"></dxi-column>\n      <dxi-column dataField=\"address\" alignment=\"center\"></dxi-column>\n      <dxi-column dataField=\"open_at\" alignment=\"center\" dataType=\"datetime\" format=\"shortTime\"></dxi-column>\n      <dxi-column dataField=\"close_at\" alignment=\"center\" dataType=\"datetime\" format=\"shortTime\"></dxi-column>\n      <dxi-column dataField=\"description\" alignment=\"center\"></dxi-column>\n      <dxi-column cellTemplate=\"actionTemplates\" dataField=\"id\" caption=\"Action\" alignment=\"center\"></dxi-column>\n      <div *dxTemplate=\"let data of 'actionTemplates'\">\n        <i class=\"fa fa-edit edit-btn action-btn\" (click)=\"onEdit(data)\"></i>\n      </div>\n      <div *dxTemplate=\"let data of 'cellTemplates'\">\n        <img [src]=\"data.value[0]\" class=\"image-item\"/>\n      </div>\n      <dxo-paging [pageSize]=\"3\"></dxo-paging>\n      <dxo-pager\n        [showPageSizeSelector]=\"true\"\n        [allowedPageSizes]=\"[5, 10, 15]\"\n      ></dxo-pager>\n    </dx-data-grid>\n  </div>\n</div>\n  <!-- Stores Details -->\n  <dx-popup\n    title=\"Popup Title\"\n    [(visible)]=\"isDetailPopup\"\n    [width]=\"700\"\n    [height]=\"550\">\n    <div *dxTemplate=\"let data of 'content'\" style=\"overflow-y: auto; overflow-x: hidden; \">\n      <dx-validation-group>\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <div class=\"field\">\n              <div class=\"label\">Name</div>\n              <div class=\"value\">\n                <dx-text-box [(value)]=\"store.name\">\n                  <dx-validator>\n                    <dxi-validation-rule type=\"required\" message=\"Name is required\"></dxi-validation-rule>\n                  </dx-validator>\n                </dx-text-box>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"field\">\n              <div class=\"label\">Email</div>\n              <div class=\"value\">\n                <dx-text-box [(value)]=\"store.email\">\n                  <dx-validator>\n                    <dxi-validation-rule type=\"required\" message=\"Email is required\"></dxi-validation-rule>\n                    <dxi-validation-rule type=\"email\" message=\"Email is not valid\"></dxi-validation-rule>\n                  </dx-validator>\n                </dx-text-box>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"field\">\n              <div class=\"label\">Phone</div>\n              <div class=\"value\">\n                <dx-number-box [(value)]=\"store.phone\">\n                  <dx-validator>\n                    <dxi-validation-rule type=\"required\" message=\"Phone is required\"></dxi-validation-rule>\n                  </dx-validator>\n                </dx-number-box>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"field\">\n              <div class=\"label\">Address</div>\n              <div class=\"value\">\n                <dx-text-box [(value)]=\"store.address\">\n                  <dx-validator>\n                    <dxi-validation-rule type=\"required\" message=\"Address is required\"></dxi-validation-rule>\n                  </dx-validator>\n                </dx-text-box>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"field\">\n              <div class=\"label\">Open At</div>\n              <div class=\"value\">\n                <dx-date-box [(value)]=\"store.open_at\" type=\"time\">\n                  <dx-validator>\n                    <dxi-validation-rule type=\"required\" message=\"Open at is required\"></dxi-validation-rule>\n                  </dx-validator>\n                </dx-date-box>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"dinkAfield\">\n              <div class=\"label\">Closed At</div>\n              <div class=\"value\">\n                <dx-date-box [(value)]=\"store.close_at\" type=\"time\">\n                  <dx-validator>\n                    <dxi-validation-rule type=\"required\" message=\"Close at is required\"></dxi-validation-rule>\n                  </dx-validator>\n                </dx-date-box>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-12\">\n            <div class=\"field\">\n              <div class=\"label\">Description</div>\n              <div class=\"value\">\n                <dx-text-area [(value)]=\"store.description\"></dx-text-area>\n              </div>\n            </div>\n          </div>\n          <div class=\"col-md-12\">\n            <div class=\"field\">\n              <div class=\"label\">\n                Picture\n              </div>\n              <div class=\"value\">\n                <label>\n                  <input type=\"file\" (change)=\"fileEvent($event)\">\n                  <dx-button text=\"ADD IMAGES\"></dx-button>\n                </label>\n              </div>\n            </div>\n          </div>\n        </div>\n        <div class=\"images-wrap d-flex\">\n          <div class=\"item\" *ngFor=\"let item of listFileImages; index as i\">\n            <img [src]=\"safeGetUrl(item.url)\" alt=\"\">\n            <i class=\"fa fa-times-circle\" (click)=\"removeImage(i)\"></i>\n          </div>\n        </div>\n        <div class=\"d-flex justify-content-end btn-actions\">\n          <dx-button text=\"Add\" type=\"success\" (onClick)=\"save($event)\"></dx-button>\n          <dx-button text=\"Cancel\" (onClick)=\"isDetailPopup=false\"></dx-button>\n        </div>\n      </dx-validation-group>\n    </div>\n  </dx-popup>\n\n"
 
 /***/ }),
 
@@ -516,7 +813,7 @@ module.exports = "<div>\n  <dx-data-grid\n    [dataSource]=\"stores\"\n    keyEx
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc3RvcmUvc3RvcmVzL3N0b3Jlcy5jb21wb25lbnQuc2NzcyJ9 */"
+module.exports = ".stores-wrap td {\n  text-align: center; }\n\n.stores-wrap .action-btn {\n  margin-right: 4px;\n  font-size: 20px; }\n\n.image-item {\n  width: 100px;\n  height: 100px; }\n\n.images-wrap {\n  position: relative; }\n\n.images-wrap .item {\n    width: 100px;\n    height: 100px;\n    margin-right: 10px; }\n\n.images-wrap .item i {\n      position: absolute;\n      margin-left: -14px;\n      color: greenyellow;\n      font-size: 20px;\n      margin-top: -5px; }\n\n.images-wrap .item img {\n      width: 100%;\n      height: 100%;\n      -o-object-fit: cover;\n         object-fit: cover; }\n\n.field .label {\n  margin-top: 10px; }\n\n.field .value label input {\n  display: none; }\n\n.btn-actions dx-button {\n  margin-right: 20px; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zdG9yZS9zdG9yZXMvRDpcXENvZGVcXEFuZ3VsYXJcXEZvb2RpbmtcXGZvb2RpbmtBcHAvc3JjXFxhcHBcXGNvbXBvbmVudHNcXHN0b3JlXFxzdG9yZXNcXHN0b3Jlcy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLG1CQUFrQixFQUNuQjs7QUFISDtFQU1JLGtCQUFpQjtFQUNqQixnQkFBZSxFQUNoQjs7QUFHSDtFQUNFLGFBQVk7RUFDWixjQUFhLEVBQ2Q7O0FBRUQ7RUFDRSxtQkFBa0IsRUFrQm5COztBQW5CRDtJQUdJLGFBQVk7SUFDWixjQUFhO0lBQ2IsbUJBQWtCLEVBYW5COztBQWxCSDtNQU9NLG1CQUFrQjtNQUNsQixtQkFBa0I7TUFDbEIsbUJBQWtCO01BQ2xCLGdCQUFlO01BQ2YsaUJBQWdCLEVBQ2pCOztBQVpMO01BY00sWUFBVztNQUNYLGFBQVk7TUFDWixxQkFBaUI7U0FBakIsa0JBQWlCLEVBQ2xCOztBQUlMO0VBRUksaUJBQWdCLEVBQ2pCOztBQUhIO0VBT1EsY0FBYSxFQUNkOztBQUtQO0VBRUksbUJBQWtCLEVBQ25CIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9zdG9yZS9zdG9yZXMvc3RvcmVzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnN0b3Jlcy13cmFwIHtcclxuICB0ZCB7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgfVxyXG5cclxuICAuYWN0aW9uLWJ0biB7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDRweDtcclxuICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICB9XHJcbn1cclxuXHJcbi5pbWFnZS1pdGVtIHtcclxuICB3aWR0aDogMTAwcHg7XHJcbiAgaGVpZ2h0OiAxMDBweDtcclxufVxyXG5cclxuLmltYWdlcy13cmFwIHtcclxuICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgLml0ZW0ge1xyXG4gICAgd2lkdGg6IDEwMHB4O1xyXG4gICAgaGVpZ2h0OiAxMDBweDtcclxuICAgIG1hcmdpbi1yaWdodDogMTBweDtcclxuICAgIGkge1xyXG4gICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgIG1hcmdpbi1sZWZ0OiAtMTRweDtcclxuICAgICAgY29sb3I6IGdyZWVueWVsbG93O1xyXG4gICAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICAgIG1hcmdpbi10b3A6IC01cHg7XHJcbiAgICB9XHJcbiAgICBpbWcge1xyXG4gICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgaGVpZ2h0OiAxMDAlO1xyXG4gICAgICBvYmplY3QtZml0OiBjb3ZlcjtcclxuICAgIH1cclxuICB9XHJcbn1cclxuXHJcbi5maWVsZCB7XHJcbiAgLmxhYmVsIHtcclxuICAgIG1hcmdpbi10b3A6IDEwcHg7XHJcbiAgfVxyXG4gIC52YWx1ZSB7XHJcbiAgICBsYWJlbCB7XHJcbiAgICAgIGlucHV0IHtcclxuICAgICAgICBkaXNwbGF5OiBub25lO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcblxyXG4uYnRuLWFjdGlvbnMge1xyXG4gIGR4LWJ1dHRvbiB7XHJcbiAgICBtYXJnaW4tcmlnaHQ6IDIwcHg7XHJcbiAgfVxyXG59XHJcbiJdfQ== */"
 
 /***/ }),
 
@@ -532,6 +829,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoresComponent", function() { return StoresComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../services/ApiService */ "./src/app/services/ApiService.ts");
+/* harmony import */ var _models_store_storeModel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../models/store/storeModel */ "./src/app/models/store/storeModel.ts");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -543,10 +842,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
+
 var StoresComponent = /** @class */ (function () {
-    function StoresComponent(apiService) {
+    function StoresComponent(apiService, sanitizer) {
         this.apiService = apiService;
+        this.sanitizer = sanitizer;
         this.stores = new Array();
+        this.isDetailPopup = false;
+        this.store = new _models_store_storeModel__WEBPACK_IMPORTED_MODULE_2__["StoreModel"]();
+        this.pictures = new Array();
+        this.listFileImages = new Array();
     }
     StoresComponent.prototype.ngOnInit = function () {
         this.loadStores();
@@ -555,7 +861,63 @@ var StoresComponent = /** @class */ (function () {
         var _this = this;
         this.apiService.get(this.apiService.apiUrl + "/dashboard/stores").subscribe(function (data) {
             _this.stores = data.stores;
-            console.log(_this.stores);
+            for (var index = 0; index < data.stores.pictures.length; index++) {
+                var item = {
+                    no: index,
+                    link: data.stores.pictures[index],
+                    is_destroy: 0,
+                    url: data.stores.pictures[index]
+                };
+                _this.listFileImages.push(item);
+            }
+        });
+    };
+    StoresComponent.prototype.safeGetUrl = function (url) {
+        return this.sanitizer.bypassSecurityTrustUrl(url);
+    };
+    StoresComponent.prototype.fileEvent = function (e) {
+        for (var i = 0; i < e.target.files.length; i++) {
+            var item = {
+                no: i,
+                link: e.target.files[i],
+                is_destroy: 0,
+                url: window.URL.createObjectURL(e.target.files[i])
+            };
+            this.listFileImages.push(item);
+        }
+        console.log(this.listFileImages);
+        e.target.value = null;
+    };
+    StoresComponent.prototype.removeImage = function (i) {
+        if (i > -1) {
+            this.listFileImages.splice(i, 1);
+        }
+    };
+    StoresComponent.prototype.onEdit = function (data) {
+        var _this = this;
+        this.apiService.get(this.apiService.apiUrl + "/dashboard/stores/" + data.value).subscribe(function (data) {
+            _this.store = data.store;
+        });
+        this.isDetailPopup = true;
+    };
+    StoresComponent.prototype.save = function (e) {
+        if (!e.validationGroup.validate().isValid) {
+            return false;
+        }
+        var _formData = new FormData();
+        _formData.append('name', this.store.name);
+        _formData.append('email', this.store.email);
+        _formData.append('phone', this.store.phone);
+        _formData.append('address', this.store.address);
+        _formData.append('open_at', this.store.open_at.toString());
+        _formData.append('close_at', this.store.close_at.toString());
+        for (var i = 0; i < this.listFileImages.length; i++) {
+            _formData.append("images_attributes[" + this.listFileImages[i].no + "][id]", this.listFileImages[i].no);
+            _formData.append("images_attributes[" + this.listFileImages[i].no + "][link]", this.listFileImages[i].file);
+            _formData.append("images_attributes[" + this.listFileImages[i].no + "][_destroy]", this.listFileImages[i].is_destroy);
+        }
+        console.log(_formData.getAll('images_attributes[0][link]'));
+        this.apiService.patch(this.apiService.apiUrl + "/dashboard/stores/" + this.store.id, this.store).subscribe(function (data) {
         });
     };
     StoresComponent = __decorate([
@@ -564,7 +926,7 @@ var StoresComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./stores.component.html */ "./src/app/components/store/stores/stores.component.html"),
             styles: [__webpack_require__(/*! ./stores.component.scss */ "./src/app/components/store/stores/stores.component.scss")]
         }),
-        __metadata("design:paramtypes", [_services_ApiService__WEBPACK_IMPORTED_MODULE_1__["ApiService"]])
+        __metadata("design:paramtypes", [_services_ApiService__WEBPACK_IMPORTED_MODULE_1__["ApiService"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"]])
     ], StoresComponent);
     return StoresComponent;
 }());
@@ -577,13 +939,14 @@ var StoresComponent = /** @class */ (function () {
 /*!**************************************************!*\
   !*** ./src/app/models/account/userLoginModel.ts ***!
   \**************************************************/
-/*! exports provided: UserLoginModel, UserModel */
+/*! exports provided: UserLoginModel, UserModel, ProfileModel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserLoginModel", function() { return UserLoginModel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserModel", function() { return UserModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileModel", function() { return ProfileModel; });
 var UserLoginModel = /** @class */ (function () {
     function UserLoginModel() {
     }
@@ -594,6 +957,189 @@ var UserModel = /** @class */ (function () {
     function UserModel() {
     }
     return UserModel;
+}());
+
+var ProfileModel = /** @class */ (function () {
+    function ProfileModel() {
+    }
+    return ProfileModel;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/store/storeModel.ts":
+/*!********************************************!*\
+  !*** ./src/app/models/store/storeModel.ts ***!
+  \********************************************/
+/*! exports provided: storeShortModel, productModel, categoryModel, SizeModel, RateModel, StoreModel, ImageModel, CartModel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "storeShortModel", function() { return storeShortModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "productModel", function() { return productModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "categoryModel", function() { return categoryModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SizeModel", function() { return SizeModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RateModel", function() { return RateModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreModel", function() { return StoreModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ImageModel", function() { return ImageModel; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartModel", function() { return CartModel; });
+var storeShortModel = /** @class */ (function () {
+    function storeShortModel() {
+    }
+    return storeShortModel;
+}());
+
+var productModel = /** @class */ (function () {
+    function productModel() {
+    }
+    return productModel;
+}());
+
+var categoryModel = /** @class */ (function () {
+    function categoryModel() {
+    }
+    return categoryModel;
+}());
+
+var SizeModel = /** @class */ (function () {
+    function SizeModel() {
+    }
+    return SizeModel;
+}());
+
+var RateModel = /** @class */ (function () {
+    function RateModel() {
+    }
+    return RateModel;
+}());
+
+var StoreModel = /** @class */ (function () {
+    function StoreModel() {
+    }
+    return StoreModel;
+}());
+
+var ImageModel = /** @class */ (function () {
+    function ImageModel() {
+    }
+    return ImageModel;
+}());
+
+var CartModel = /** @class */ (function () {
+    function CartModel() {
+    }
+    return CartModel;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/cart-detail/cart-detail.component.html":
+/*!**************************************************************!*\
+  !*** ./src/app/pages/cart-detail/cart-detail.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-header></app-header>\n<div class=\"container-fluid cart-details\">\n  <dx-data-grid\n    [dataSource]=\"carts\"\n    keyExpr=\"id\"\n    [remoteOperations]=\"false\"\n    [allowColumnReordering]=\"true\"\n    [rowAlternationEnabled]=\"true\"\n    [showBorders]=\"true\">\n    <dxo-search-panel\n      [visible]=\"true\"\n      [highlightCaseSensitive]=\"true\"\n    ></dxo-search-panel>\n    <dxi-column dataField=\"product.name\" caption=\"Product\"></dxi-column>\n    <dxi-column dataField=\"product.pictures[0]\" caption=\"Picture\">\n      <div *dxTemplate=\"let item of 'totalTemplate'\">\n        {{item.value}}VND\n      </div>\n    </dxi-column>\n    <dxi-column dataField=\"size.size\" caption=\"Size\"></dxi-column>\n    <dxi-column dataField=\"size.price\" caption=\"Price\"></dxi-column>\n    <dxi-column dataField=\"quantity\" caption=\"Quantity\" cellTemplate=\"quantityTemplate\">\n      <div *dxTemplate=\"let item of 'quantityTemplate'\">\n        <dx-number-box class=\"number\" [showSpinButtons]=\"true\" [min]=\"1\" [(value)]=\"item.value\" (onValueChanged)=\"onChangeQuantity(item, $event)\"></dx-number-box>\n      </div>\n    </dxi-column>\n    <dxi-column cellTemplate=\"actionTemplates\" dataField=\"id\" caption=\"Action\" alignment=\"center\">\n      <div *dxTemplate=\"let data of 'actionTemplates'\">\n        <span (click)=\"onDeleteItem(data)\"><i class=\"fa fa-trash\"></i></span>\n      </div>\n    </dxi-column>\n    <dxo-paging [pageSize]=\"10\"></dxo-paging>\n    <dxo-pager\n      [showPageSizeSelector]=\"true\"\n    ></dxo-pager>\n  </dx-data-grid>\n  <div>Total: {{total}} VNĐ</div>\n  <div class=\"d-flex justify-content-between\">\n    <dx-button type=\"danger\" text=\"Continue Shopping\" (onClick)=\"onContinousShopping()\"></dx-button>\n    <dx-button type=\"danger\" text=\"Order Now\" (onClick)=\"onOrder()\"></dx-button>\n  </div>\n</div>\n<app-footer></app-footer>\n\n\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/cart-detail/cart-detail.component.scss":
+/*!**************************************************************!*\
+  !*** ./src/app/pages/cart-detail/cart-detail.component.scss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".cart-details {\n  margin: 50px 0; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvY2FydC1kZXRhaWwvRDpcXENvZGVcXEFuZ3VsYXJcXEZvb2RpbmtcXGZvb2RpbmtBcHAvc3JjXFxhcHBcXHBhZ2VzXFxjYXJ0LWRldGFpbFxcY2FydC1kZXRhaWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxlQUFjLEVBQ2YiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9jYXJ0LWRldGFpbC9jYXJ0LWRldGFpbC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJ0LWRldGFpbHMge1xyXG4gIG1hcmdpbjogNTBweCAwO1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/pages/cart-detail/cart-detail.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/pages/cart-detail/cart-detail.component.ts ***!
+  \************************************************************/
+/*! exports provided: CartDetailComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CartDetailComponent", function() { return CartDetailComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/ApiService */ "./src/app/services/ApiService.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var CartDetailComponent = /** @class */ (function () {
+    function CartDetailComponent(apiService, router) {
+        this.apiService = apiService;
+        this.router = router;
+        this.carts = new Array();
+    }
+    CartDetailComponent.prototype.ngOnInit = function () {
+        this.loadCart();
+    };
+    CartDetailComponent.prototype.loadCart = function () {
+        var _this = this;
+        this.apiService.get(this.apiService.apiUrl + "/carts").subscribe(function (data) {
+            _this.carts = data.carts;
+            _this.calculatorTotal();
+        });
+    };
+    CartDetailComponent.prototype.onContinousShopping = function () {
+        this.router.navigate(['home']);
+    };
+    CartDetailComponent.prototype.onOrder = function () {
+    };
+    CartDetailComponent.prototype.calculatorTotal = function () {
+        var sum = 0;
+        for (var _i = 0, _a = this.carts; _i < _a.length; _i++) {
+            var item = _a[_i];
+            var x = item.quantity * item.size.price;
+            sum += x;
+        }
+        this.total = sum;
+    };
+    CartDetailComponent.prototype.onChangeQuantity = function (data, e) {
+        data.data.quantity = e.value;
+        var dt = {
+            'quantity': data.data.quantity
+        };
+        this.apiService.patch(this.apiService.apiUrl + "/carts/" + data.data.id, dt).subscribe(function () {
+        });
+        this.calculatorTotal();
+    };
+    CartDetailComponent.prototype.onDeleteItem = function (data) {
+        var _this = this;
+        this.apiService.delete(this.apiService.apiUrl + "/carts/" + data.data.id, '').subscribe(function () {
+            _this.loadCart();
+        });
+        this.calculatorTotal();
+    };
+    CartDetailComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-cart-detail',
+            template: __webpack_require__(/*! ./cart-detail.component.html */ "./src/app/pages/cart-detail/cart-detail.component.html"),
+            styles: [__webpack_require__(/*! ./cart-detail.component.scss */ "./src/app/pages/cart-detail/cart-detail.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_services_ApiService__WEBPACK_IMPORTED_MODULE_1__["ApiService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]])
+    ], CartDetailComponent);
+    return CartDetailComponent;
 }());
 
 
@@ -607,7 +1153,7 @@ var UserModel = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<app-slider></app-slider>\n<div class=\"container\">\n  <div class=\"product-tab-list-wrap text-center mb-40\">\n    <div class=\"product-tab-list nav\">\n      <a class=\"active\" href=\"#tab1\" data-toggle=\"tab\">\n        <h4>All </h4>\n      </a>\n      <a href=\"#tab2\" data-toggle=\"tab\">\n        <h4>Food </h4>\n      </a>\n      <a href=\"#tab3\" data-toggle=\"tab\">\n        <h4> Drink </h4>\n      </a>\n    </div>\n    <p>Typi non habent claritatem insitam est usus legentis in qui facit eorum claritatem, investigationes\n      demonstraverunt lectores legere me lius quod legunt saepius.</p>\n  </div>\n</div>\n<div class=\"container\">\n  <div class=\"products-wrap\">\n    <div class=\"product-item\">\n      <div class=\"item\">\n        <img src=\"assets/img/product/product-1.jpg\" alt=\"\">\n        <div class=\"item-info\">\n          <p>NAME PRODUCT HERE</p>\n          <p>$5.00</p>\n        </div>\n        <div class=\"item-action\">\n          <div class=\"d-flex mb-3\">\n            <div class=\"mr-auto p-2\"><i class=\"fa fa-shopping-cart\">Add to cart</i></div>\n            <div class=\"p-2\">\n              <i class=\"far fa-heart\"></i>\n            </div>\n            <div class=\"p-2\">\n              <i class=\"fas fa-arrows-alt\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"product-item\">\n      <div class=\"item\">\n        <img src=\"assets/img/product/product-1.jpg\" alt=\"\">\n        <div class=\"item-info\">\n          <p>NAME PRODUCT HERE</p>\n          <p>$5.00</p>\n        </div>\n        <div class=\"item-action\">\n          <div class=\"d-flex mb-3\">\n            <div class=\"mr-auto p-2\"><i class=\"fa fa-shopping-cart\">Add to cart</i></div>\n            <div class=\"p-2\">\n              <i class=\"far fa-heart\"></i>\n            </div>\n            <div class=\"p-2\">\n              <i class=\"fas fa-arrows-alt\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"product-item\">\n      <div class=\"item\">\n        <img src=\"assets/img/product/product-1.jpg\" alt=\"\">\n        <div class=\"item-info\">\n          <p>NAME PRODUCT HERE</p>\n          <p>$5.00</p>\n        </div>\n        <div class=\"item-action\">\n          <div class=\"d-flex mb-3\">\n            <div class=\"mr-auto p-2\"><i class=\"fa fa-shopping-cart\">Add to cart</i></div>\n            <div class=\"p-2\">\n              <i class=\"far fa-heart\"></i>\n            </div>\n            <div class=\"p-2\">\n              <i class=\"fas fa-arrows-alt\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"product-item\">\n      <div class=\"item\">\n        <img src=\"assets/img/product/product-1.jpg\" alt=\"\">\n        <div class=\"item-info\">\n          <p>NAME PRODUCT HERE</p>\n          <p>$5.00</p>\n        </div>\n        <div class=\"item-action\">\n          <div class=\"d-flex mb-3\">\n            <div class=\"mr-auto p-2\"><i class=\"fa fa-shopping-cart\">Add to cart</i></div>\n            <div class=\"p-2\">\n              <i class=\"far fa-heart\"></i>\n            </div>\n            <div class=\"p-2\">\n              <i class=\"fas fa-arrows-alt\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div class=\"product-item\">\n      <div class=\"item\">\n        <img src=\"assets/img/product/product-1.jpg\" alt=\"\">\n        <div class=\"item-info\">\n          <p class=\"name\">NAME PRODUCT HERE</p>\n          <p>$5.00</p>\n        </div>\n        <div class=\"item-action\">\n          <div class=\"d-flex mb-3\">\n            <div class=\"mr-auto p-2\"><i class=\"fa fa-shopping-cart\">Add to cart</i></div>\n            <div class=\"p-2\">\n              <i class=\"far fa-heart\"></i>\n            </div>\n            <div class=\"p-2\">\n              <i class=\"fas fa-arrows-alt\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"container best-food-wrap\">\n  <div class=\"title\">BEST FOOD & DRINK</div>\n  <owl-carousel [options]=\"mySlideOptions\" [items]=\"images\" [carouselClasses]=\"['owl-theme', 'sliding']\" >\n    <div class=\"item\" *ngFor=\"let image of myCarouselImages;let i = index\">\n      <div>\n        <div class=\"product-item\">\n          <div class=\"item\">\n            <img src='assets/img/product/product-1.jpg' alt=\"\">\n            <div class=\"item-info\">\n              <p class=\"name\">NAME PRODUCT HERE</p>\n              <p>$5.00</p>\n            </div>\n            <div class=\"item-action\">\n              <div class=\"d-flex mb-3\">\n                <div class=\"mr-auto p-2\"><i class=\"fa fa-shopping-cart\">Add to cart</i></div>\n                <div class=\"p-2\">\n                  <i class=\"far fa-heart\"></i>\n                </div>\n                <div class=\"p-2\">\n                  <i class=\"fas fa-arrows-alt\"></i>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </owl-carousel>\n</div>\n<app-footer></app-footer>\n\n"
+module.exports = "<app-header></app-header>\n<app-slider></app-slider>\n<div class=\"container\">\n  <div class=\"product-tab-list-wrap text-center mb-40\">\n    <div class=\"product-tab-list nav\">\n      <a class=\"active\" href=\"#tab1\" data-toggle=\"tab\">\n        <h4>All </h4>\n      </a>\n      <a href=\"#tab2\" data-toggle=\"tab\">\n        <h4>Food </h4>\n      </a>\n      <a href=\"#tab3\" data-toggle=\"tab\">\n        <h4> Drink </h4>\n      </a>\n    </div>\n    <p>Typi non habent claritatem insitam est usus legentis in qui facit eorum claritatem, investigationes\n      demonstraverunt lectores legere me lius quod legunt saepius.</p>\n  </div>\n</div>\n<div class=\"container\">\n  <div class=\"products-wrap\">\n    <div class=\"product-item\" *ngFor=\"let item of products\" (click)=\"onShowProductDetail(item)\">\n      <div class=\"item\">\n        <img src=\"assets/img/product/product-1.jpg\" alt=\"\">\n        <div class=\"item-info\">\n          <p>{{item.name}}</p>\n          <p>{{item.sizes[0].price}} VNĐ</p>\n        </div>\n        <div class=\"item-action\">\n          <div class=\"d-flex mb-3\">\n            <div class=\"mr-auto p-2\"><i class=\"fa fa-shopping-cart\">Add to cart</i></div>\n            <div class=\"p-2\">\n              <i class=\"far fa-heart\"></i>\n            </div>\n            <div class=\"p-2\">\n              <i class=\"fas fa-arrows-alt\"></i>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"container best-food-wrap\">\n  <div class=\"title\">BEST FOOD & DRINK</div>\n  <owl-carousel [options]=\"mySlideOptions\" [items]=\"images\" [carouselClasses]=\"['owl-theme', 'sliding']\" >\n    <div class=\"item\" *ngFor=\"let image of myCarouselImages;let i = index\">\n      <div>\n        <div class=\"product-item\">\n          <div class=\"item\">\n            <img src='assets/img/product/product-1.jpg' alt=\"\">\n            <div class=\"item-info\">\n              <p class=\"name\">NAME PRODUCT HERE</p>\n              <p>$5.00</p>\n            </div>\n            <div class=\"item-action\">\n              <div class=\"d-flex mb-3\">\n                <div class=\"mr-auto p-2\"><i class=\"fa fa-shopping-cart\">Add to cart</i></div>\n                <div class=\"p-2\">\n                  <i class=\"far fa-heart\"></i>\n                </div>\n                <div class=\"p-2\">\n                  <i class=\"fas fa-arrows-alt\"></i>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </owl-carousel>\n</div>\n<app-footer></app-footer>\n\n"
 
 /***/ }),
 
@@ -633,6 +1179,9 @@ module.exports = ".product-tab-list {\n  justify-content: center; }\n  .product-
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../services/ApiService */ "./src/app/services/ApiService.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -643,18 +1192,34 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(apiService, router, data) {
+        this.apiService = apiService;
+        this.router = router;
+        this.data = data;
         this.images = [
             'assets/img/slider/slider-1.jpg',
             'assets/img/slider/slider-2.jpg'
         ];
-        this.mySlideImages = [1, 2, 3].map(function (i) { return "https://picsum.photos/640/480?image=" + i; });
         this.myCarouselImages = [1, 2, 3, 4, 5, 6].map(function (i) { return "https://picsum.photos/640/480?image=" + i; });
         this.mySlideOptions = { items: 5, dots: false, nav: true, loop: true };
-        this.myCarouselOptions = { items: 3, dots: true, nav: true };
+        this.products = new Array();
     }
     HomeComponent.prototype.ngOnInit = function () {
+        this.loadProducts();
+    };
+    HomeComponent.prototype.loadProducts = function () {
+        var _this = this;
+        this.apiService.get(this.apiService.apiUrl + "/products").subscribe(function (data) {
+            _this.products = data.products;
+        });
+    };
+    HomeComponent.prototype.onShowProductDetail = function (e) {
+        this.data.changeMessage(e.id);
+        this.router.navigate(['products/detail']);
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -662,7 +1227,7 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/pages/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.scss */ "./src/app/pages/home/home.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_ApiService__WEBPACK_IMPORTED_MODULE_1__["ApiService"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"], _services_data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -741,8 +1306,13 @@ var LoginComponent = /** @class */ (function () {
             if (data.success) {
                 _this.user.token = data.auth_token.token;
                 localStorage.setItem('token', _this.user.token);
-                console.log(localStorage);
-                _this.router.navigate(['dashboard/store']);
+                localStorage.setItem('user', JSON.stringify(data.auth_token.user));
+                if (data.auth_token.user.role.name === 'Customer') {
+                    _this.router.navigate(['products/detail']);
+                }
+                else {
+                    _this.router.navigate(['dashboard/store']);
+                }
             }
         });
     };
@@ -761,6 +1331,134 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/pages/product-detail/product-detail.component.html":
+/*!********************************************************************!*\
+  !*** ./src/app/pages/product-detail/product-detail.component.html ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<app-header></app-header>\n<div class=\"product-details pt-100 pb-90\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-6 col-md-12\">\n        <div class=\"product-details-img\">\n          <img src=\"assets/img/product-details/product-detalis-l1.jpg\" id=\"main-img\"/>\n          <div class=\"galery\">\n            <owl-carousel [options]=\"mySlideOptions\" [items]=\"images\" [carouselClasses]=\"['owl-theme', 'sliding']\">\n              <div class=\"item\" *ngFor=\"let image of myCarouselImages;let i = index\">\n                <img src='assets/img/product/product-1.jpg' (click)=\"showImage($event)\">\n              </div>\n            </owl-carousel>\n          </div>\n        </div>\n      </div>\n      <div class=\"col-lg-6 col-md-12\">\n        <div class=\"product-details-content\">\n          <h4>{{product.name}}</h4>\n          <div class=\"rating-review\">\n            <div class=\"pro-dec-rating\">\n              <i class=\"fa fa-star star-defalt\"></i>\n              <i class=\"fa fa-star star-defalt\"></i>\n              <i class=\"fa fa-star star-defalt\"></i>\n              <i class=\"fa fa-star star-defalt\"></i>\n              <i class=\"fa fa-star star-defalt\"></i>\n              ({{product.avg_rate_score}})\n            </div>\n            <div class=\"review\">\n              <span>{{product.rates.length}} Reviews</span>\n              <span> Add Your Reviews</span>\n            </div>\n            <div class=\"price\">{{price}} VNĐ</div>\n            <div class=\"size\">\n              <dx-radio-group\n                [dataSource]=\"product.sizes\"\n                displayExpr=\"size\"\n                valueExpr=\"id\"\n                [value]=\"sizeId\"\n                (onValueChanged)=\"onChangeSize($event)\">\n              </dx-radio-group>\n            </div>\n            <div class=\"product-quantity\">\n              <dx-number-box class=\"number\" [showSpinButtons]=\"true\" [min]=\"1\" [value]=\"quantity\"></dx-number-box>\n            </div>\n            <dx-button text=\"Buy Now\" type=\"success\" class=\"buy-now-btn\" (onClick)=\"onBuyNow()\"></dx-button>\n            <dx-button text=\"Add To Cart\" type=\"danger\" class=\"add-cart-btn\" (onClick)=\"onAddCart()\"></dx-button>\n            <div class=\"pro-dec-categories\">\n              <span>Categories:</span>\n            </div>\n            <div class=\"pro-dec-social\">\n              <button class=\"btn btn-wt\"><i class=\"fab fa-twitter\"></i> Tweet</button>\n              <button class=\"btn btn-f\"><i class=\"fab fa-facebook-f\"></i> Share</button>\n              <button class=\"btn btn-gg\"><i class=\"fab fa-google-plus-g\"></i> Google+</button>\n              <button class=\"btn btn-pt\"><i class=\"fab fa-pinterest-p\"></i> Pinterest</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"description-review-area pb-100\">\n    <div class=\"container\">\n      <div class=\"description-review-wrapper\">\n        <div class=\"d-flex nav tags justify-content-center\">\n          <a class=\"active\" data-toggle=\"tab\" href=\"#des-details1\">Description</a>\n          <a data-toggle=\"tab\" href=\"#des-details2\">Tags</a>\n          <a data-toggle=\"tab\" href=\"#des-details3\">Review</a>\n        </div>\n        <div class=\"tab-content description-review-bottom\">\n          <div id=\"des-details1\" class=\"tab-pane active\">\n            <div class=\"product-description-wrapper\">\n              {{product.description}}\n            </div>\n          </div>\n          <div id=\"des-details2\" class=\"tab-pane\">\n            <div class=\"product-anotherinfo-wrapper\">\n              <span>Tags: {{product.category.name}}</span>\n            </div>\n          </div>\n          <div id=\"des-details3\" class=\"tab-pane\">\n            <div class=\"rattings-wrapper\">\n              <div class=\"sin-rattings\" *ngFor=\"let rate of product.rates\">\n                <div class=\"star-author-all\">\n                  <div class=\"ratting-star f-left\">\n                    <i class=\"fa fa-star star-defalt\"></i>\n                    <i class=\"fa fa-star star-defalt\"></i>\n                    <i class=\"fa fa-star star-defalt\"></i>\n                    <i class=\"fa fa-star star-defalt\"></i>\n                    <i class=\"fa fa-star star-defalt\"></i>\n                    <span>({{rate.rate}})</span>\n                  </div>\n                  <div class=\"ratting-author f-right\">\n                    <h3>tayeb rayed</h3>\n                    <span>12:24</span>\n                    <span>9 March 2018</span>\n                  </div>\n                </div>\n                <p>{{rate.content}}</p>\n              </div>\n            </div>\n            <div class=\"ratting-form-wrapper\">\n              <h3>Add your Comments :</h3>\n              <div class=\"ratting-form\">\n                <dx-validation-group>\n                  <div class=\"star-box\">\n                    <div class=\"rating-star\">\n                      <span>Rating:</span>\n\n                      <div class=\"stars stars--pointer\">\n                        <input class=\"stars__input\" type=\"radio\" id=\"star-5\" name=\"stars\" value=\"5\" [(ngModel)]=\"rate\"/>\n                        <label for=\"star-5\" class=\"stars__label\" title=\"5\"></label>\n\n                        <input class=\"stars__input\" type=\"radio\" id=\"star-4\" name=\"stars\" value=\"4\" [(ngModel)]=\"rate\"/>\n                        <label for=\"star-4\" class=\"stars__label\" title=\"4\"></label>\n\n                        <input class=\"stars__input\" type=\"radio\" id=\"star-3\" name=\"stars\" value=\"3\" [(ngModel)]=\"rate\"/>\n                        <label for=\"star-3\" class=\"stars__label\" title=\"3\"></label>\n\n                        <input class=\"stars__input\" type=\"radio\" id=\"star-2\" name=\"stars\" value=\"2\" [(ngModel)]=\"rate\"/>\n                        <label for=\"star-2\" class=\"stars__label\" title=\"2\"></label>\n\n                        <input class=\"stars__input\" type=\"radio\" id=\"star-1\" name=\"stars\" value=\"1\" [(ngModel)]=\"rate\"/>\n                        <label for=\"star-1\" class=\"stars__label\" title=\"1\"></label>\n                      </div>\n                    </div>\n                  </div>\n                  <div class=\"row\">\n                    <div class=\"col-12\">\n                      <dx-text-area placeholder=\"Message\" [(value)]=\"content\"></dx-text-area>\n                    </div>\n                  </div>\n                  <dx-button text=\"Add Comment\" type=\"danger\" class=\"add-comment-btn\" (onClick)=\"onAddComment()\"></dx-button>\n                </dx-validation-group>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"container best-food-wrap\">\n    <div class=\"title\">BEST FOOD & DRINK</div>\n    <owl-carousel [options]=\"mySlideOptions\" [items]=\"images\" [carouselClasses]=\"['owl-theme', 'sliding']\">\n      <div class=\"item\" *ngFor=\"let image of myCarouselImages;let i = index\">\n        <div>\n          <div class=\"product-item\">\n            <div class=\"item\">\n              <img src='assets/img/product/product-1.jpg' alt=\"\">\n              <div class=\"item-info\">\n                <p class=\"name\">NAME PRODUCT HERE</p>\n                <p>$5.00</p>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </owl-carousel>\n  </div>\n  <app-footer></app-footer>\n"
+
+/***/ }),
+
+/***/ "./src/app/pages/product-detail/product-detail.component.scss":
+/*!********************************************************************!*\
+  !*** ./src/app/pages/product-detail/product-detail.component.scss ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".best-food-wrap {\n  clear: both; }\n  .best-food-wrap .title {\n    font-size: 30px;\n    text-decoration: underline;\n    font-weight: 600; }\n  .best-food-wrap .product-item {\n    width: calc(100%); }\n  .best-food-wrap .product-item .item {\n      padding: 0px 15px; }\n  .best-food-wrap /deep/ .owl-nav {\n    position: absolute;\n    top: -75px;\n    font-size: 50px;\n    right: 0px; }\n  .best-food-wrap /deep/ .owl-nav button {\n      outline: none; }\n  .best-food-wrap /deep/ .owl-nav button:hover {\n      background: none;\n      color: grey; }\n  .product-item {\n  width: calc(100% / 4 - 24px);\n  margin: 10px 10px;\n  display: inline-block; }\n  .product-item:nth-child(5n) {\n    margin-right: 0px !important; }\n  .product-item .item img {\n    width: 100%;\n    -o-object-fit: cover;\n       object-fit: cover;\n    position: relative; }\n  .product-item .item .item-info {\n    margin-top: 20px;\n    font-weight: bold; }\n  .product-item .item .item-info p {\n      margin: 5px; }\n  .product-item:hover .item {\n    cursor: pointer; }\n  .product-details {\n  margin-top: 70px; }\n  .product-details .product-details-img {\n    padding: 20px; }\n  .product-details .product-details-img img {\n      width: 100%;\n      -o-object-fit: cover;\n         object-fit: cover; }\n  .product-details .product-details-img .galery {\n      margin: 10px 20px; }\n  .product-details .product-details-img .galery .item {\n        margin: 0 5px; }\n  .product-details .product-details-img .galery /deep/ .owl-nav button {\n        outline: none; }\n  .product-details .product-details-img .galery /deep/ .owl-nav button:hover {\n        background: none;\n        color: grey; }\n  .product-details .product-details-img .galery /deep/ .owl-nav .owl-prev {\n        position: absolute;\n        top: 8px;\n        left: -20px;\n        font-size: 35px; }\n  .product-details .product-details-img .galery /deep/ .owl-nav .owl-next {\n        position: absolute;\n        top: 8px;\n        left: 100%;\n        font-size: 35px; }\n  .product-details .product-details-content {\n    padding: 20px; }\n  .product-details .product-details-content .review span {\n      margin-right: 15px; }\n  .product-details .product-details-content .price {\n      color: red;\n      font-size: 30px;\n      margin: 30px 0px; }\n  .product-details .product-details-content .size {\n      margin: 10px 0; }\n  .product-details .product-details-content /deep/ .number {\n      width: 80px; }\n  .product-details .product-details-content .add-cart-btn {\n      margin: 10px 10px; }\n  .product-details .product-details-content .pro-dec-social {\n      margin: 20px 0; }\n  .product-details .product-details-content .pro-dec-social button {\n        margin-right: 5px; }\n  .product-details .product-details-content .pro-dec-social .btn-wt {\n        background: #00AAF0;\n        color: white; }\n  .product-details .product-details-content .pro-dec-social .btn-wt:hover {\n          background: white;\n          color: #00AAF0;\n          border: 1px solid #00AAF0; }\n  .product-details .product-details-content .pro-dec-social .btn-pt {\n        background: #CE1F21;\n        color: white; }\n  .product-details .product-details-content .pro-dec-social .btn-pt:hover {\n          background: white;\n          color: #CE1F21;\n          border: 1px solid #CE1F21; }\n  .product-details .product-details-content .pro-dec-social .btn-f {\n        background: #435F9F;\n        color: white; }\n  .product-details .product-details-content .pro-dec-social .btn-f:hover {\n          background: white;\n          color: #435F9F;\n          border: 1px solid #435F9F; }\n  .product-details .product-details-content .pro-dec-social .btn-gg {\n        background: #E04B34;\n        color: white; }\n  .product-details .product-details-content .pro-dec-social .btn-gg:hover {\n          background: white;\n          color: #E04B34;\n          border: 1px solid #E04B34; }\n  .product-details .description-review-wrapper {\n    margin: 40px 0; }\n  .product-details .description-review-wrapper .tags {\n      border-bottom: 1px solid gray;\n      margin: 20px 0; }\n  .product-details .description-review-wrapper .tags a {\n        text-decoration: none;\n        font-size: 20px;\n        margin: 10px 20px;\n        color: black;\n        font-weight: 600; }\n  .product-details .description-review-wrapper .tags .active {\n        color: darkred;\n        border-bottom: 2px solid darkred; }\n  .product-details .description-review-wrapper .ratting-form .star-box {\n      margin: 10px 0; }\n  .product-details .description-review-wrapper .ratting-form .add-comment-btn {\n      margin-top: 10px; }\n  .product-details .star-defalt {\n    color: darkgray; }\n  .product-details .star {\n    color: yellow; }\n  .stars {\n  display: inline-flex;\n  align-items: center;\n  flex-direction: row-reverse; }\n  .stars--pointer .stars__label {\n    cursor: pointer; }\n  .stars__label {\n    padding: 0 5px;\n    color: #e7e7e7; }\n  .stars__label:before {\n      content: '\\f005';\n      font-family: FontAwesome;\n      font-size: 24px; }\n  .stars__label:hover {\n      color: #ff7723; }\n  .stars__label:hover ~ .stars__label {\n        color: #ff7723; }\n  .stars__input {\n    position: absolute;\n    visibility: hidden; }\n  .stars__input:checked ~ .stars__label {\n      color: #ff7723; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvcHJvZHVjdC1kZXRhaWwvRDpcXENvZGVcXEFuZ3VsYXJcXEZvb2RpbmtcXGZvb2RpbmtBcHAvc3JjXFxhcHBcXHBhZ2VzXFxwcm9kdWN0LWRldGFpbFxccHJvZHVjdC1kZXRhaWwuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxZQUFXLEVBNEJaO0VBN0JEO0lBSUksZ0JBQWU7SUFDZiwyQkFBMEI7SUFDMUIsaUJBQWdCLEVBQ2pCO0VBUEg7SUFTSSxrQkFBaUIsRUFLbEI7RUFkSDtNQVlNLGtCQUFpQixFQUNsQjtFQWJMO0lBaUJJLG1CQUFrQjtJQUNsQixXQUFVO0lBQ1YsZ0JBQWU7SUFDZixXQUFVLEVBUVg7RUE1Qkg7TUFzQk0sY0FBYSxFQUNkO0VBdkJMO01BeUJNLGlCQUFnQjtNQUNoQixZQUFXLEVBQ1o7RUFJTDtFQUNFLDZCQUE0QjtFQUM1QixrQkFBaUI7RUFDakIsc0JBQXFCLEVBMkJ0QjtFQTlCRDtJQUtJLDZCQUE0QixFQUM3QjtFQU5IO0lBVU0sWUFBVztJQUNYLHFCQUFpQjtPQUFqQixrQkFBaUI7SUFDakIsbUJBQWtCLEVBQ25CO0VBYkw7SUFnQk0saUJBQWdCO0lBQ2hCLGtCQUFpQixFQUtsQjtFQXRCTDtNQW9CUSxZQUFXLEVBQ1o7RUFyQlA7SUEyQk0sZ0JBQWUsRUFDaEI7RUFJTDtFQUNFLGlCQUFnQixFQWlKakI7RUFsSkQ7SUFJSSxjQUFhLEVBbUNkO0VBdkNIO01BTU0sWUFBVztNQUNYLHFCQUFpQjtTQUFqQixrQkFBaUIsRUFDbEI7RUFSTDtNQVdNLGtCQUFpQixFQTJCbEI7RUF0Q0w7UUFhUSxjQUFhLEVBQ2Q7RUFkUDtRQWtCVSxjQUFhLEVBQ2Q7RUFuQlQ7UUFxQlUsaUJBQWdCO1FBQ2hCLFlBQVcsRUFDWjtFQXZCVDtRQTBCVSxtQkFBa0I7UUFDbEIsU0FBUTtRQUNSLFlBQVc7UUFDWCxnQkFBZSxFQUNoQjtFQTlCVDtRQWdDVSxtQkFBa0I7UUFDbEIsU0FBUTtRQUNSLFdBQVU7UUFDVixnQkFBZSxFQUNoQjtFQXBDVDtJQTBDSSxjQUFhLEVBa0VkO0VBNUdIO01BaURRLG1CQUFrQixFQUNuQjtFQWxEUDtNQXFETSxXQUFVO01BQ1YsZ0JBQWU7TUFDZixpQkFBZ0IsRUFDakI7RUF4REw7TUEwRE0sZUFBYyxFQUNmO0VBM0RMO01BNkRNLFlBQVcsRUFDWjtFQTlETDtNQWdFTSxrQkFBaUIsRUFDbEI7RUFqRUw7TUFtRU0sZUFBYyxFQXdDZjtFQTNHTDtRQXFFUSxrQkFBaUIsRUFDbEI7RUF0RVA7UUF3RVEsb0JBQW1CO1FBQ25CLGFBQVksRUFNYjtFQS9FUDtVQTJFVSxrQkFBaUI7VUFDakIsZUFBYztVQUNkLDBCQUF5QixFQUMxQjtFQTlFVDtRQWlGUSxvQkFBbUI7UUFDbkIsYUFBWSxFQU1iO0VBeEZQO1VBb0ZVLGtCQUFpQjtVQUNqQixlQUFjO1VBQ2QsMEJBQXlCLEVBQzFCO0VBdkZUO1FBMEZRLG9CQUFtQjtRQUNuQixhQUFZLEVBTWI7RUFqR1A7VUE2RlUsa0JBQWlCO1VBQ2pCLGVBQWM7VUFDZCwwQkFBeUIsRUFDMUI7RUFoR1Q7UUFtR1Esb0JBQW1CO1FBQ25CLGFBQVksRUFNYjtFQTFHUDtVQXNHVSxrQkFBaUI7VUFDakIsZUFBYztVQUNkLDBCQUF5QixFQUMxQjtFQXpHVDtJQStHSSxlQUFjLEVBMEJmO0VBeklIO01BaUhNLDhCQUE2QjtNQUM3QixlQUFjLEVBYWY7RUEvSEw7UUFvSFEsc0JBQXFCO1FBQ3JCLGdCQUFlO1FBQ2Ysa0JBQWlCO1FBQ2pCLGFBQVk7UUFDWixpQkFBZ0IsRUFDakI7RUF6SFA7UUE0SFEsZUFBYztRQUNkLGlDQUFnQyxFQUNqQztFQTlIUDtNQWtJUSxlQUFjLEVBQ2Y7RUFuSVA7TUFxSVEsaUJBQWdCLEVBQ2pCO0VBdElQO0lBNElJLGdCQUFlLEVBQ2hCO0VBN0lIO0lBZ0pJLGNBQWEsRUFDZDtFQUdIO0VBS0UscUJBQW9CO0VBQ3BCLG9CQUFtQjtFQUNuQiw0QkFBMkIsRUFtQzVCO0VBakNFO0lBRUcsZ0JBQWUsRUFDaEI7RUFHSDtJQUNFLGVBQWM7SUFDZCxlQWRzQixFQTZCdkI7RUFqQkE7TUFLRyxpQkFBZ0I7TUFDaEIseUJBQXdCO01BQ3hCLGdCQUFlLEVBQ2hCO0VBUkY7TUFXRyxlQXhCa0IsRUE2Qm5CO0VBaEJGO1FBY0ssZUEzQmdCLEVBNEJqQjtFQUlMO0lBQ0UsbUJBQWtCO0lBQ2xCLG1CQUFrQixFQUtuQjtFQVBBO01BS0csZUFyQ2tCLEVBc0NuQiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Byb2R1Y3QtZGV0YWlsL3Byb2R1Y3QtZGV0YWlsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJlc3QtZm9vZC13cmFwIHtcclxuICBjbGVhcjogYm90aDtcclxuXHJcbiAgLnRpdGxlIHtcclxuICAgIGZvbnQtc2l6ZTogMzBweDtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xyXG4gICAgZm9udC13ZWlnaHQ6IDYwMDtcclxuICB9XHJcbiAgLnByb2R1Y3QtaXRlbSB7XHJcbiAgICB3aWR0aDogY2FsYygxMDAlKTtcclxuXHJcbiAgICAuaXRlbSB7XHJcbiAgICAgIHBhZGRpbmc6IDBweCAxNXB4O1xyXG4gICAgfVxyXG4gIH1cclxuXHJcbiAgL2RlZXAvIC5vd2wtbmF2IHtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogLTc1cHg7XHJcbiAgICBmb250LXNpemU6IDUwcHg7XHJcbiAgICByaWdodDogMHB4O1xyXG4gICAgYnV0dG9uIHtcclxuICAgICAgb3V0bGluZTogbm9uZTtcclxuICAgIH1cclxuICAgIGJ1dHRvbjpob3ZlciB7XHJcbiAgICAgIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgICAgIGNvbG9yOiBncmV5O1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG5cclxuLnByb2R1Y3QtaXRlbSB7XHJcbiAgd2lkdGg6IGNhbGMoMTAwJSAvIDQgLSAyNHB4KTtcclxuICBtYXJnaW46IDEwcHggMTBweDtcclxuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgJjpudGgtY2hpbGQoNW4pIHtcclxuICAgIG1hcmdpbi1yaWdodDogMHB4ICFpbXBvcnRhbnQ7XHJcbiAgfVxyXG5cclxuICAuaXRlbSB7XHJcbiAgICBpbWcge1xyXG4gICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgb2JqZWN0LWZpdDogY292ZXI7XHJcbiAgICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICAgIH1cclxuXHJcbiAgICAuaXRlbS1pbmZvIHtcclxuICAgICAgbWFyZ2luLXRvcDogMjBweDtcclxuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcblxyXG4gICAgICBwIHtcclxuICAgICAgICBtYXJnaW46IDVweDtcclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxuXHJcbiAgJjpob3ZlciB7XHJcbiAgICAuaXRlbSB7XHJcbiAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIH1cclxuICB9XHJcbn1cclxuXHJcbi5wcm9kdWN0LWRldGFpbHMge1xyXG4gIG1hcmdpbi10b3A6IDcwcHg7XHJcblxyXG4gIC5wcm9kdWN0LWRldGFpbHMtaW1nIHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcbiAgICBpbWcge1xyXG4gICAgICB3aWR0aDogMTAwJTtcclxuICAgICAgb2JqZWN0LWZpdDogY292ZXI7XHJcbiAgICB9XHJcblxyXG4gICAgLmdhbGVyeSB7XHJcbiAgICAgIG1hcmdpbjogMTBweCAyMHB4O1xyXG4gICAgICAuaXRlbSB7XHJcbiAgICAgICAgbWFyZ2luOiAwIDVweDtcclxuICAgICAgfVxyXG5cclxuICAgICAgL2RlZXAvIC5vd2wtbmF2IHtcclxuICAgICAgICBidXR0b24ge1xyXG4gICAgICAgICAgb3V0bGluZTogbm9uZTtcclxuICAgICAgICB9XHJcbiAgICAgICAgYnV0dG9uOmhvdmVyIHtcclxuICAgICAgICAgIGJhY2tncm91bmQ6IG5vbmU7XHJcbiAgICAgICAgICBjb2xvcjogZ3JleTtcclxuICAgICAgICB9XHJcblxyXG4gICAgICAgIC5vd2wtcHJldiB7XHJcbiAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICAgICAgICB0b3A6IDhweDtcclxuICAgICAgICAgIGxlZnQ6IC0yMHB4O1xyXG4gICAgICAgICAgZm9udC1zaXplOiAzNXB4O1xyXG4gICAgICAgIH1cclxuICAgICAgICAub3dsLW5leHQge1xyXG4gICAgICAgICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgICAgICAgdG9wOiA4cHg7XHJcbiAgICAgICAgICBsZWZ0OiAxMDAlO1xyXG4gICAgICAgICAgZm9udC1zaXplOiAzNXB4O1xyXG4gICAgICAgIH1cclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxuXHJcbiAgLnByb2R1Y3QtZGV0YWlscy1jb250ZW50IHtcclxuICAgIHBhZGRpbmc6IDIwcHg7XHJcblxyXG4gICAgLnJhdGluZy1yZXZpZXcge1xyXG5cclxuICAgIH1cclxuICAgIC5yZXZpZXcge1xyXG4gICAgICBzcGFuIHtcclxuICAgICAgICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbiAgICAgIH1cclxuICAgIH1cclxuICAgIC5wcmljZSB7XHJcbiAgICAgIGNvbG9yOiByZWQ7XHJcbiAgICAgIGZvbnQtc2l6ZTogMzBweDtcclxuICAgICAgbWFyZ2luOiAzMHB4IDBweDtcclxuICAgIH1cclxuICAgIC5zaXplIHtcclxuICAgICAgbWFyZ2luOiAxMHB4IDA7XHJcbiAgICB9XHJcbiAgICAvZGVlcC8gLm51bWJlciB7XHJcbiAgICAgIHdpZHRoOiA4MHB4O1xyXG4gICAgfVxyXG4gICAgLmFkZC1jYXJ0LWJ0biB7XHJcbiAgICAgIG1hcmdpbjogMTBweCAxMHB4O1xyXG4gICAgfVxyXG4gICAgLnByby1kZWMtc29jaWFsIHtcclxuICAgICAgbWFyZ2luOiAyMHB4IDA7XHJcbiAgICAgIGJ1dHRvbiB7XHJcbiAgICAgICAgbWFyZ2luLXJpZ2h0OiA1cHg7XHJcbiAgICAgIH1cclxuICAgICAgLmJ0bi13dCB7XHJcbiAgICAgICAgYmFja2dyb3VuZDogIzAwQUFGMDtcclxuICAgICAgICBjb2xvcjogd2hpdGU7XHJcbiAgICAgICAgJjpob3ZlciB7XHJcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICAgICAgICAgIGNvbG9yOiAjMDBBQUYwO1xyXG4gICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgIzAwQUFGMDtcclxuICAgICAgICB9XHJcbiAgICAgIH1cclxuICAgICAgLmJ0bi1wdCB7XHJcbiAgICAgICAgYmFja2dyb3VuZDogI0NFMUYyMTtcclxuICAgICAgICBjb2xvcjogd2hpdGU7XHJcbiAgICAgICAgJjpob3ZlciB7XHJcbiAgICAgICAgICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICAgICAgICAgIGNvbG9yOiAjQ0UxRjIxO1xyXG4gICAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI0NFMUYyMTtcclxuICAgICAgICB9XHJcbiAgICAgIH1cclxuICAgICAgLmJ0bi1mIHtcclxuICAgICAgICBiYWNrZ3JvdW5kOiAjNDM1RjlGO1xyXG4gICAgICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgICAgICAmOmhvdmVyIHtcclxuICAgICAgICAgIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gICAgICAgICAgY29sb3I6ICM0MzVGOUY7XHJcbiAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjNDM1RjlGO1xyXG4gICAgICAgIH1cclxuICAgICAgfVxyXG4gICAgICAuYnRuLWdnIHtcclxuICAgICAgICBiYWNrZ3JvdW5kOiAjRTA0QjM0O1xyXG4gICAgICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgICAgICAmOmhvdmVyIHtcclxuICAgICAgICAgIGJhY2tncm91bmQ6IHdoaXRlO1xyXG4gICAgICAgICAgY29sb3I6ICNFMDRCMzQ7XHJcbiAgICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjRTA0QjM0O1xyXG4gICAgICAgIH1cclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxuXHJcbiAgLmRlc2NyaXB0aW9uLXJldmlldy13cmFwcGVyIHtcclxuICAgIG1hcmdpbjogNDBweCAwO1xyXG4gICAgLnRhZ3Mge1xyXG4gICAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgZ3JheTtcclxuICAgICAgbWFyZ2luOiAyMHB4IDA7XHJcbiAgICAgIGEge1xyXG4gICAgICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgICAgICBmb250LXNpemU6IDIwcHg7XHJcbiAgICAgICAgbWFyZ2luOiAxMHB4IDIwcHg7XHJcbiAgICAgICAgY29sb3I6IGJsYWNrO1xyXG4gICAgICAgIGZvbnQtd2VpZ2h0OiA2MDA7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC5hY3RpdmUge1xyXG4gICAgICAgIGNvbG9yOiBkYXJrcmVkO1xyXG4gICAgICAgIGJvcmRlci1ib3R0b206IDJweCBzb2xpZCBkYXJrcmVkO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgICAucmF0dGluZy1mb3JtIHtcclxuICAgICAgLnN0YXItYm94IHtcclxuICAgICAgICBtYXJnaW46IDEwcHggMDtcclxuICAgICAgfVxyXG4gICAgICAuYWRkLWNvbW1lbnQtYnRuIHtcclxuICAgICAgICBtYXJnaW4tdG9wOiAxMHB4O1xyXG4gICAgICB9XHJcbiAgICB9XHJcblxyXG4gIH1cclxuXHJcbiAgLnN0YXItZGVmYWx0IHtcclxuICAgIGNvbG9yOiBkYXJrZ3JheTtcclxuICB9XHJcblxyXG4gIC5zdGFyIHtcclxuICAgIGNvbG9yOiB5ZWxsb3c7XHJcbiAgfVxyXG59XHJcblxyXG4uc3RhcnMge1xyXG4gICRibG9jazogJjtcclxuICAkY29sb3ItYWN0aXZlOiAjZmY3NzIzO1xyXG4gICRjb2xvci1pbmFjdGl2ZTogI2U3ZTdlNztcclxuXHJcbiAgZGlzcGxheTogaW5saW5lLWZsZXg7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93LXJldmVyc2U7XHJcblxyXG4gICYtLXBvaW50ZXIge1xyXG4gICAgI3skYmxvY2t9X19sYWJlbCB7XHJcbiAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIH1cclxuICB9XHJcblxyXG4gICZfX2xhYmVsIHtcclxuICAgIHBhZGRpbmc6IDAgNXB4O1xyXG4gICAgY29sb3I6ICRjb2xvci1pbmFjdGl2ZTtcclxuXHJcbiAgICAmOmJlZm9yZSB7XHJcbiAgICAgIGNvbnRlbnQ6ICdcXGYwMDUnO1xyXG4gICAgICBmb250LWZhbWlseTogRm9udEF3ZXNvbWU7XHJcbiAgICAgIGZvbnQtc2l6ZTogMjRweDtcclxuICAgIH1cclxuXHJcbiAgICAmOmhvdmVyIHtcclxuICAgICAgY29sb3I6ICRjb2xvci1hY3RpdmU7XHJcblxyXG4gICAgICB+ICN7JGJsb2NrfV9fbGFiZWwge1xyXG4gICAgICAgIGNvbG9yOiAkY29sb3ItYWN0aXZlO1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG5cclxuICAmX19pbnB1dCB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB2aXNpYmlsaXR5OiBoaWRkZW47XHJcblxyXG4gICAgJjpjaGVja2VkIH4gI3skYmxvY2t9X19sYWJlbCB7XHJcbiAgICAgIGNvbG9yOiAkY29sb3ItYWN0aXZlO1xyXG4gICAgfVxyXG4gIH1cclxufVxyXG4iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/pages/product-detail/product-detail.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/pages/product-detail/product-detail.component.ts ***!
+  \******************************************************************/
+/*! exports provided: ProductDetailComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProductDetailComponent", function() { return ProductDetailComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _services_data_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/data.service */ "./src/app/services/data.service.ts");
+/* harmony import */ var _services_ApiService__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/ApiService */ "./src/app/services/ApiService.ts");
+/* harmony import */ var _models_store_storeModel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/store/storeModel */ "./src/app/models/store/storeModel.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ProductDetailComponent = /** @class */ (function () {
+    function ProductDetailComponent(router, data, apiService) {
+        this.router = router;
+        this.data = data;
+        this.apiService = apiService;
+        this.myCarouselImages = [1, 2, 3, 4, 5, 6].map(function (i) { return "https://picsum.photos/640/480?image=" + i; });
+        this.mySlideOptions = { items: 5, dots: false, nav: true, loop: true };
+        this.product = new _models_store_storeModel__WEBPACK_IMPORTED_MODULE_4__["productModel"]();
+        this.quantity = 1;
+        this.sizeId = 0;
+    }
+    ProductDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.data.currentId.subscribe(function (message) { return _this.productId = message; });
+        this.loadProduct();
+    };
+    ProductDetailComponent.prototype.loadProduct = function () {
+        var _this = this;
+        this.apiService.get(this.apiService.apiUrl + "/products/" + this.productId).subscribe(function (data) {
+            _this.product = data.product;
+        });
+    };
+    ProductDetailComponent.prototype.showImage = function (e) {
+        var x = document.getElementById('main-img');
+        x.src = e.target.src;
+    };
+    ProductDetailComponent.prototype.onBuyNow = function () {
+        this.router.navigate(['home/carts']);
+    };
+    ProductDetailComponent.prototype.onAddCart = function () {
+        var productData = {
+            'product_id': this.productId,
+            'size_id': this.sizeId,
+            'quantity': this.quantity
+        };
+        this.apiService.post(this.apiService.apiUrl + "/carts", productData).subscribe(function () {
+        });
+    };
+    ProductDetailComponent.prototype.onChangeSize = function (e) {
+        this.sizeId = e.value;
+        this.getPrice();
+    };
+    ProductDetailComponent.prototype.getPrice = function () {
+        for (var _i = 0, _a = this.product.sizes; _i < _a.length; _i++) {
+            var size = _a[_i];
+            if (size.id == this.sizeId) {
+                this.price = size.price;
+                break;
+            }
+        }
+    };
+    ProductDetailComponent.prototype.onAddComment = function () {
+        var _this = this;
+        var rateData = {
+            'product_id': this.productId,
+            'rate': this.rate,
+            'content': this.content
+        };
+        this.apiService.post(this.apiService.apiUrl + "/rates", rateData).subscribe(function () {
+            _this.loadProduct();
+        });
+    };
+    ProductDetailComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-product-detail',
+            template: __webpack_require__(/*! ./product-detail.component.html */ "./src/app/pages/product-detail/product-detail.component.html"),
+            styles: [__webpack_require__(/*! ./product-detail.component.scss */ "./src/app/pages/product-detail/product-detail.component.scss")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _services_data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"], _services_ApiService__WEBPACK_IMPORTED_MODULE_3__["ApiService"]])
+    ], ProductDetailComponent);
+    return ProductDetailComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/store/store.component.html":
 /*!**************************************************!*\
   !*** ./src/app/pages/store/store.component.html ***!
@@ -768,7 +1466,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"wrapper\">\n  <!-- Sidebar  -->\n  <nav id=\"sidebar\">\n    <div class=\"sidebar-header\">\n      <h3>STORE MANAGEMENT</h3>\n    </div>\n    <ul class=\"list-unstyled components\">\n      <li>\n        <a id=\"stores\" class=\"active tab\" (click)=\"tabClick($event)\">Stores</a>\n      </li>\n      <li>\n        <a id=\"products\" class=\"tab\" (click)=\"tabClick($event)\">Products</a>\n      </li>\n      <li>\n        <a id=\"order\" class=\"tab\" (click)=\"tabClick($event)\">Orders</a>\n      </li>\n      <li>\n        <a id=\"profile\" class=\"tab\" (click)=\"tabClick($event)\">Profile</a>\n      </li>\n    </ul>\n  </nav>\n\n  <!-- Page Content  -->\n  <div id=\"content\">\n    <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n      <div class=\"container-fluid\">\n        <button type=\"button\" id=\"sidebarCollapse\" class=\"btn btn-info\" (click)=\"x()\">\n          <i class=\"fa fa-outdent\"></i>\n        </button>\n        <div class=\"collapse navbar-collapse\">\n          <ul class=\"nav navbar-nav ml-auto\">\n            <li class=\"nav-item active\" (click)=\"logout()\">\n              <a class=\"nav-link\">Logout</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </nav>\n    <div class=\"tab-content\">\n      <div *ngIf=\"tabClicked=='stores'\">\n        <app-stores></app-stores>\n      </div>\n      <div *ngIf=\"tabClicked=='products'\">\n        <app-products></app-products>\n      </div>\n      <div *ngIf=\"tabClicked=='order'\">\n        <h3>2a</h3>\n      </div>\n      <div *ngIf=\"tabClicked=='profile'\">\n        <h3>3a</h3>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n"
+module.exports = "<div class=\"wrapper\">\n  <!-- Sidebar  -->\n  <nav id=\"sidebar\">\n    <div class=\"sidebar-header\">\n      <h3>STORE MANAGEMENT</h3>\n    </div>\n    <ul class=\"list-unstyled components\">\n      <li>\n        <a id=\"stores\" class=\"active tab\" (click)=\"tabClick($event)\">Stores</a>\n      </li>\n      <li>\n        <a id=\"products\" class=\"tab\" (click)=\"tabClick($event)\">Products</a>\n      </li>\n      <li>\n        <a id=\"order\" class=\"tab\" (click)=\"tabClick($event)\">Orders</a>\n      </li>\n      <li>\n        <a id=\"profile\" class=\"tab\" (click)=\"tabClick($event)\">Profile</a>\n      </li>\n    </ul>\n  </nav>\n\n  <!-- Page Content  -->\n  <div id=\"content\">\n    <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n      <div class=\"container-fluid\">\n        <button type=\"button\" id=\"sidebarCollapse\" class=\"btn btn-info\" (click)=\"sidebarBtnClick()\">\n          <i class=\"fa fa-outdent\"></i>\n        </button>\n        <div class=\"collapse navbar-collapse\">\n          <ul class=\"nav navbar-nav ml-auto\">\n            <li class=\"nav-item active\" (click)=\"logout()\">\n              <a class=\"nav-link\">Logout</a>\n            </li>\n          </ul>\n        </div>\n      </div>\n    </nav>\n    <div class=\"tab-content\">\n      <div *ngIf=\"tabClicked=='stores'\">\n        <app-stores></app-stores>\n      </div>\n      <div *ngIf=\"tabClicked=='products'\">\n        <app-products></app-products>\n      </div>\n      <div *ngIf=\"tabClicked=='order'\">\n        <app-orders></app-orders>\n      </div>\n      <div *ngIf=\"tabClicked=='profile'\">\n        <app-profile></app-profile>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n"
 
 /***/ }),
 
@@ -812,14 +1510,14 @@ var StoreComponent = /** @class */ (function () {
     function StoreComponent(apiService, router) {
         this.apiService = apiService;
         this.router = router;
-        this.tabClicked = 'products';
+        this.tabClicked = 'stores';
     }
     StoreComponent.prototype.ngOnInit = function () {
         if (!localStorage.getItem('token')) {
             this.router.navigate(['/home']);
         }
     };
-    StoreComponent.prototype.x = function () {
+    StoreComponent.prototype.sidebarBtnClick = function () {
         document.getElementById('sidebar').classList.toggle('active');
     };
     StoreComponent.prototype.tabClick = function (e) {
@@ -998,6 +1696,50 @@ var ApiService = /** @class */ (function () {
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
     ], ApiService);
     return ApiService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/data.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/data.service.ts ***!
+  \******************************************/
+/*! exports provided: DataService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataService", function() { return DataService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DataService = /** @class */ (function () {
+    function DataService() {
+        this.idProduct = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](1);
+        this.currentId = this.idProduct.asObservable();
+    }
+    DataService.prototype.changeMessage = function (id) {
+        this.idProduct.next(id);
+    };
+    DataService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], DataService);
+    return DataService;
 }());
 
 

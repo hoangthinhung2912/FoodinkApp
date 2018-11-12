@@ -1,32 +1,153 @@
-<div>
-  <dx-data-grid
-    [dataSource]="stores"
-    keyExpr="id"
-    [remoteOperations]="false"
-    [allowColumnReordering]="true"
-    [rowAlternationEnabled]="true"
-    [showBorders]="true">
-    <dxo-search-panel
-      [visible]="true"
-      [highlightCaseSensitive]="true"
-    ></dxo-search-panel>
-    <dxi-column dataField="name"></dxi-column>
-    <dxi-column dataField="email"></dxi-column>
-    <dxi-column dataField="phone"></dxi-column>
-    <dxi-column dataField="address"></dxi-column>
-    <dxi-column dataField="open_at" dataType="date"></dxi-column>
-    <dxi-column dataField="close_at" dataType="date"></dxi-column>
-    <dxi-column dataField="description"></dxi-column>
-    <dxi-column dataField="status"></dxi-column>
-    <dxi-column dataField="pictures" cellTemplate="cellTemplates"></dxi-column>
-    <dxi-column></dxi-column>
-    <div *dxTemplate="let data of 'cellTemplates'">
-      <img [src]="data.value"/>
-    </div>
-    <dxo-paging [pageSize]="5"></dxo-paging>
-    <dxo-pager
-      [showPageSizeSelector]="true"
-      [allowedPageSizes]="[5, 10, 15]"
-    ></dxo-pager>
-  </dx-data-grid>
+<div class="stores-wrap">
+  <div class="container-fluid">
+    <dx-data-grid
+      [dataSource]="stores"
+      [remoteOperations]="false"
+      [allowColumnReordering]="true"
+      [allowColumnResizing]="true"
+      [rowAlternationEnabled]="true"
+      [showBorders]="true">
+      <dxo-search-panel
+        [visible]="true"
+        [highlightCaseSensitive]="true"
+      ></dxo-search-panel>
+      <dxi-column dataField="name" alignment="center"></dxi-column>
+      <dxi-column dataField="email" alignment="center"></dxi-column>
+      <dxi-column dataField="phone" alignment="center"></dxi-column>
+      <dxi-column dataField="address" alignment="center"></dxi-column>
+      <dxi-column dataField="open_at" alignment="center" dataType="datetime" format="shortTime"></dxi-column>
+      <dxi-column dataField="close_at" alignment="center" dataType="datetime" format="shortTime"></dxi-column>
+      <dxi-column dataField="description" alignment="center"></dxi-column>
+      <dxi-column cellTemplate="actionTemplates" dataField="id" caption="Action" alignment="center"></dxi-column>
+      <div *dxTemplate="let data of 'actionTemplates'">
+        <i class="fa fa-edit edit-btn action-btn" (click)="onEdit(data)"></i>
+      </div>
+      <div *dxTemplate="let data of 'cellTemplates'">
+        <img [src]="data.value[0]" class="image-item"/>
+      </div>
+      <dxo-paging [pageSize]="3"></dxo-paging>
+      <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="[5, 10, 15]"
+      ></dxo-pager>
+    </dx-data-grid>
+  </div>
 </div>
+  <!-- Stores Details -->
+  <dx-popup
+    title="Popup Title"
+    [(visible)]="isDetailPopup"
+    [width]="700"
+    [height]="550">
+    <div *dxTemplate="let data of 'content'" style="overflow-y: auto; overflow-x: hidden; ">
+      <dx-validation-group>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="field">
+              <div class="label">Name</div>
+              <div class="value">
+                <dx-text-box [(value)]="store.name">
+                  <dx-validator>
+                    <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                  </dx-validator>
+                </dx-text-box>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="field">
+              <div class="label">Email</div>
+              <div class="value">
+                <dx-text-box [(value)]="store.email">
+                  <dx-validator>
+                    <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+                    <dxi-validation-rule type="email" message="Email is not valid"></dxi-validation-rule>
+                  </dx-validator>
+                </dx-text-box>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="field">
+              <div class="label">Phone</div>
+              <div class="value">
+                <dx-number-box [(value)]="store.phone">
+                  <dx-validator>
+                    <dxi-validation-rule type="required" message="Phone is required"></dxi-validation-rule>
+                  </dx-validator>
+                </dx-number-box>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="field">
+              <div class="label">Address</div>
+              <div class="value">
+                <dx-text-box [(value)]="store.address">
+                  <dx-validator>
+                    <dxi-validation-rule type="required" message="Address is required"></dxi-validation-rule>
+                  </dx-validator>
+                </dx-text-box>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="field">
+              <div class="label">Open At</div>
+              <div class="value">
+                <dx-date-box [(value)]="store.open_at" type="time">
+                  <dx-validator>
+                    <dxi-validation-rule type="required" message="Open at is required"></dxi-validation-rule>
+                  </dx-validator>
+                </dx-date-box>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="dinkAfield">
+              <div class="label">Closed At</div>
+              <div class="value">
+                <dx-date-box [(value)]="store.close_at" type="time">
+                  <dx-validator>
+                    <dxi-validation-rule type="required" message="Close at is required"></dxi-validation-rule>
+                  </dx-validator>
+                </dx-date-box>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="field">
+              <div class="label">Description</div>
+              <div class="value">
+                <dx-text-area [(value)]="store.description"></dx-text-area>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="field">
+              <div class="label">
+                Picture
+              </div>
+              <div class="value">
+                <label>
+                  <input type="file" (change)="fileEvent($event)">
+                  <dx-button text="ADD IMAGES"></dx-button>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="images-wrap d-flex">
+          <div class="item" *ngFor="let item of listFileImages; index as i">
+            <img [src]="safeGetUrl(item.url)" alt="">
+            <i class="fa fa-times-circle" (click)="removeImage(i)"></i>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end btn-actions">
+          <dx-button text="Add" type="success" (onClick)="save($event)"></dx-button>
+          <dx-button text="Cancel" (onClick)="isDetailPopup=false"></dx-button>
+        </div>
+      </dx-validation-group>
+    </div>
+  </dx-popup>
+

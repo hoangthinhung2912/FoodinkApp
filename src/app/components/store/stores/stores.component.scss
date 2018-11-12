@@ -1,0 +1,55 @@
+.stores-wrap {
+  td {
+    text-align: center;
+  }
+
+  .action-btn {
+    margin-right: 4px;
+    font-size: 20px;
+  }
+}
+
+.image-item {
+  width: 100px;
+  height: 100px;
+}
+
+.images-wrap {
+  position: relative;
+  .item {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    i {
+      position: absolute;
+      margin-left: -14px;
+      color: greenyellow;
+      font-size: 20px;
+      margin-top: -5px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.field {
+  .label {
+    margin-top: 10px;
+  }
+  .value {
+    label {
+      input {
+        display: none;
+      }
+    }
+  }
+}
+
+.btn-actions {
+  dx-button {
+    margin-right: 20px;
+  }
+}

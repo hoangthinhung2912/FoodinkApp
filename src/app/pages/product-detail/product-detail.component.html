@@ -1,0 +1,160 @@
+<app-header></app-header>
+<div class="product-details pt-100 pb-90">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="product-details-img">
+          <img src="assets/img/product-details/product-detalis-l1.jpg" id="main-img"/>
+          <div class="galery">
+            <owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']">
+              <div class="item" *ngFor="let image of myCarouselImages;let i = index">
+                <img src='assets/img/product/product-1.jpg' (click)="showImage($event)">
+              </div>
+            </owl-carousel>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="product-details-content">
+          <h4>{{product.name}}</h4>
+          <div class="rating-review">
+            <div class="pro-dec-rating">
+              <i class="fa fa-star star-defalt"></i>
+              <i class="fa fa-star star-defalt"></i>
+              <i class="fa fa-star star-defalt"></i>
+              <i class="fa fa-star star-defalt"></i>
+              <i class="fa fa-star star-defalt"></i>
+              ({{product.avg_rate_score}})
+            </div>
+            <div class="review">
+              <span>{{product.rates.length}} Reviews</span>
+              <span> Add Your Reviews</span>
+            </div>
+            <div class="price">{{price}} VNĐ</div>
+            <div class="size">
+              <dx-radio-group
+                [dataSource]="product.sizes"
+                displayExpr="size"
+                valueExpr="id"
+                [value]="sizeId"
+                (onValueChanged)="onChangeSize($event)">
+              </dx-radio-group>
+            </div>
+            <div class="product-quantity">
+              <dx-number-box class="number" [showSpinButtons]="true" [min]="1" [value]="quantity"></dx-number-box>
+            </div>
+            <dx-button text="Buy Now" type="success" class="buy-now-btn" (onClick)="onBuyNow()"></dx-button>
+            <dx-button text="Add To Cart" type="danger" class="add-cart-btn" (onClick)="onAddCart()"></dx-button>
+            <div class="pro-dec-categories">
+              <span>Categories:</span>
+            </div>
+            <div class="pro-dec-social">
+              <button class="btn btn-wt"><i class="fab fa-twitter"></i> Tweet</button>
+              <button class="btn btn-f"><i class="fab fa-facebook-f"></i> Share</button>
+              <button class="btn btn-gg"><i class="fab fa-google-plus-g"></i> Google+</button>
+              <button class="btn btn-pt"><i class="fab fa-pinterest-p"></i> Pinterest</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="description-review-area pb-100">
+    <div class="container">
+      <div class="description-review-wrapper">
+        <div class="d-flex nav tags justify-content-center">
+          <a class="active" data-toggle="tab" href="#des-details1">Description</a>
+          <a data-toggle="tab" href="#des-details2">Tags</a>
+          <a data-toggle="tab" href="#des-details3">Review</a>
+        </div>
+        <div class="tab-content description-review-bottom">
+          <div id="des-details1" class="tab-pane active">
+            <div class="product-description-wrapper">
+              {{product.description}}
+            </div>
+          </div>
+          <div id="des-details2" class="tab-pane">
+            <div class="product-anotherinfo-wrapper">
+              <span>Tags: {{product.category.name}}</span>
+            </div>
+          </div>
+          <div id="des-details3" class="tab-pane">
+            <div class="rattings-wrapper">
+              <div class="sin-rattings" *ngFor="let rate of product.rates">
+                <div class="star-author-all">
+                  <div class="ratting-star f-left">
+                    <i class="fa fa-star star-defalt"></i>
+                    <i class="fa fa-star star-defalt"></i>
+                    <i class="fa fa-star star-defalt"></i>
+                    <i class="fa fa-star star-defalt"></i>
+                    <i class="fa fa-star star-defalt"></i>
+                    <span>({{rate.rate}})</span>
+                  </div>
+                  <div class="ratting-author f-right">
+                    <h3>tayeb rayed</h3>
+                    <span>12:24</span>
+                    <span>9 March 2018</span>
+                  </div>
+                </div>
+                <p>{{rate.content}}</p>
+              </div>
+            </div>
+            <div class="ratting-form-wrapper">
+              <h3>Add your Comments :</h3>
+              <div class="ratting-form">
+                <dx-validation-group>
+                  <div class="star-box">
+                    <div class="rating-star">
+                      <span>Rating:</span>
+
+                      <div class="stars stars--pointer">
+                        <input class="stars__input" type="radio" id="star-5" name="stars" value="5" [(ngModel)]="rate"/>
+                        <label for="star-5" class="stars__label" title="5"></label>
+
+                        <input class="stars__input" type="radio" id="star-4" name="stars" value="4" [(ngModel)]="rate"/>
+                        <label for="star-4" class="stars__label" title="4"></label>
+
+                        <input class="stars__input" type="radio" id="star-3" name="stars" value="3" [(ngModel)]="rate"/>
+                        <label for="star-3" class="stars__label" title="3"></label>
+
+                        <input class="stars__input" type="radio" id="star-2" name="stars" value="2" [(ngModel)]="rate"/>
+                        <label for="star-2" class="stars__label" title="2"></label>
+
+                        <input class="stars__input" type="radio" id="star-1" name="stars" value="1" [(ngModel)]="rate"/>
+                        <label for="star-1" class="stars__label" title="1"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <dx-text-area placeholder="Message" [(value)]="content"></dx-text-area>
+                    </div>
+                  </div>
+                  <dx-button text="Add Comment" type="danger" class="add-comment-btn" (onClick)="onAddComment()"></dx-button>
+                </dx-validation-group>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container best-food-wrap">
+    <div class="title">BEST FOOD & DRINK</div>
+    <owl-carousel [options]="mySlideOptions" [items]="images" [carouselClasses]="['owl-theme', 'sliding']">
+      <div class="item" *ngFor="let image of myCarouselImages;let i = index">
+        <div>
+          <div class="product-item">
+            <div class="item">
+              <img src='assets/img/product/product-1.jpg' alt="">
+              <div class="item-info">
+                <p class="name">NAME PRODUCT HERE</p>
+                <p>$5.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </owl-carousel>
+  </div>
+  <app-footer></app-footer>

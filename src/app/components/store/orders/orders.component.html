@@ -1,0 +1,56 @@
+<div class="container-fluid">
+  <div class="action-wrap d-flex justify-content-end">
+    <div class="col-md-4 col-lg-2 col-3">
+      <dx-select-box
+        [dataSource]="stores"
+        displayExpr="name"
+        valueExpr="id"
+        (onValueChanged)="onChangStore($event)"></dx-select-box>
+    </div>
+  </div>
+  <dx-data-grid
+    [dataSource]="orders"
+    keyExpr="id"
+    [remoteOperations]="false"
+    [allowColumnReordering]="true"
+    [rowAlternationEnabled]="true"
+    [showBorders]="true"
+    [masterDetail]="{ enabled: true, template: 'detail' }">
+    <dxo-search-panel
+      [visible]="true"
+      [highlightCaseSensitive]="true"
+    ></dxo-search-panel>
+    <dxi-column dataField="customer.name" caption="Customer"></dxi-column>
+    <dxi-column dataField="customer.phone" caption="Phone"></dxi-column>
+    <dxi-column dataField="address"></dxi-column>
+    <dxi-column dataField="total" cellTemplate="totalTemplate">
+      <div *dxTemplate="let item of 'totalTemplate'">
+        {{item.value}}VND
+      </div>
+    </dxi-column>
+    <dxi-column dataField="status"></dxi-column>
+    <dxi-column cellTemplate="actionTemplates" dataField="id" caption="Action" alignment="center">
+      <div *dxTemplate="let data of 'actionTemplates'">
+        <span (click)="onAcceptOrder(data)">Accept</span>
+        <span (click)="onRejectOrder(data)">Refuse</span>
+      </div>
+    </dxi-column>
+    <div *dxTemplate="let item of 'detail'">
+      <div class="master-detail-caption">Products</div>
+      <dx-data-grid
+        [dataSource]="item.data.detail_orders"
+        [showBorders]="true"
+        [columnAutoWidth]="true">
+        <dxi-column dataField="product.name"></dxi-column>
+        <dxi-column dataField="size.size"></dxi-column>
+        <dxi-column dataField="price"></dxi-column>
+        <dxi-column dataField="quantity"></dxi-column>
+      </dx-data-grid>
+    </div>
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+    ></dxo-pager>
+  </dx-data-grid>
+</div>
+

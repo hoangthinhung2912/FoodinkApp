@@ -1,27 +1,168 @@
-<div>
-  <div class="action-wrap d-flex justify-content-end">
+<div class="container-fluid">
+  <div class="action-wrap d-flex justify-content-between">
+    <div>
+      <dx-button type="default" text="ADD" (onClick)="onAdd()"></dx-button>
+    </div>
     <div class="col-md-4 col-lg-2 col-3">
-      <dx-select-box [dataSource]="selectBoxDataSource"></dx-select-box>
+      <dx-select-box
+        [dataSource]="stores"
+        displayExpr="name"
+        valueExpr="id"
+        (onValueChanged)="onChangStore($event)"></dx-select-box>
     </div>
   </div>
   <dx-data-grid
-    [dataSource]="customers"
-    keyExpr="ID"
+    [dataSource]="products"
+    keyExpr="id"
     [remoteOperations]="false"
     [allowColumnReordering]="true"
     [rowAlternationEnabled]="true"
-    [showBorders]="true">
+    [showBorders]="true"
+    [masterDetail]="{ enabled: true, template: 'detail' }">
     <dxo-search-panel
       [visible]="true"
       [highlightCaseSensitive]="true"
     ></dxo-search-panel>
-    <dxi-column dataField="CompanyName"></dxi-column>
-    <dxi-column dataField="City"></dxi-column>
-    <dxi-column dataField="State"></dxi-column>
-    <dxo-paging [pageSize]="1"></dxo-paging>
+    <dxi-column dataField="name"></dxi-column>
+    <dxi-column dataField="product_type"></dxi-column>
+    <dxi-column dataField="avg_rate_score"></dxi-column>
+    <dxi-column dataField="category.name"></dxi-column>
+    <dxi-column dataField="sizes" cellTemplate="sizeTemplate">
+      <div *dxTemplate="let size of 'sizeTemplate'">
+        <div *ngFor="let item of size.value">
+          {{item.size}}-{{item.price}}
+        </div>
+      </div>
+    </dxi-column>
+    <dxi-column dataField="description"></dxi-column>
+    <dxi-column cellTemplate="actionTemplates" dataField="id" caption="Action" alignment="center">
+      <div *dxTemplate="let data of 'actionTemplates'">
+        <i class="fa fa-edit edit-btn action-btn" (click)="onEdit(data)"></i>
+        <i class="fa fa-trash" (click)="onDelete(data)"></i>
+      </div>
+    </dxi-column>
+    <div *dxTemplate="let item of 'detail'">
+      <div class="master-detail-caption">Rate</div>
+      <dx-data-grid
+        [dataSource]="item.data.rates"
+        [showBorders]="true"
+        [columnAutoWidth]="true">
+        <dxi-column dataField="rate"></dxi-column>
+        <dxi-column dataField="content"></dxi-column>
+      </dx-data-grid>
+    </div>
+    <dxo-paging [pageSize]="10"></dxo-paging>
     <dxo-pager
       [showPageSizeSelector]="true"
-      [allowedPageSizes]="[8, 12, 20]"
     ></dxo-pager>
   </dx-data-grid>
 </div>
+
+<!-- Products Details -->
+<dx-popup
+  title="Popup Title"
+  [(visible)]="isDetailPopup"
+  [width]="700"
+  [height]="550">
+  <div *dxTemplate="let data of 'content'" style="overflow-y: auto; overflow-x: hidden; ">
+    <dx-validation-group>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="field">
+            <div class="label">Name</div>
+            <div class="value">
+              <dx-text-box [(value)]="product.name">
+                <dx-validator>
+                  <dxi-validation-rule type="required" message="Name is required"></dxi-validation-rule>
+                </dx-validator>
+              </dx-text-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="field">
+            <div class="label">Category</div>
+            <div class="value">
+              <dx-select-box [items]="categories"
+                             [(value)]="product.category"
+                             displayExpr="name"
+                             valueExpr="id">
+                <dx-validator>
+                  <dxi-validation-rule type="required" message="Email is required"></dxi-validation-rule>
+                </dx-validator>
+              </dx-select-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="field">
+            <div class="label">Product Type</div>
+            <div class="value">
+              <dx-select-box [items]="ProductsType" [(value)]="product.product_type">
+                <dx-validator>
+                  <dxi-validation-rule type="required" message="Product type is required"></dxi-validation-rule>
+                </dx-validator>
+              </dx-select-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="field">
+            <div class="label">Description</div>
+            <div class="value">
+              <dx-text-area [(value)]="product.description"></dx-text-area>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="label">Sizes</div>
+      </div>
+      <div *ngFor="let size of sizes; index as i" class="row size-row">
+        <div class="col-md-6">
+          <div class="field">
+            <div class="value">
+              <dx-text-box [(value)]="size.size"></dx-text-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="field">
+            <div class="value">
+              <dx-text-box [(value)]="size.price"></dx-text-box>
+            </div>
+          </div>
+        </div>
+        <i class="fa fa-times-circle" (click)="removeSizeItem(i)"></i>
+      </div>
+      <div class="field">
+        <dx-button text="ADD" (onClick)="onAddSize()"></dx-button>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="field">
+            <div class="label">
+              Picture
+            </div>
+            <div class="value">
+              <label>
+                <input type="file" (change)="fileEvent($event)">
+                <dx-button text="ADD IMAGES"></dx-button>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="images-wrap d-flex">
+        <div class="item" *ngFor="let item of listFileImages; index as i">
+          <img [src]="safeGetUrl(item.url)" alt="">
+          <i class="fa fa-times-circle" (click)="removeImage(i)"></i>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end btn-actions">
+        <dx-button text="Add" type="success" (onClick)="save($event)"></dx-button>
+        <dx-button text="Cancel" (onClick)="isDetailPopup=false"></dx-button>
+      </div>
+    </dx-validation-group>
+  </div>
+</dx-popup>

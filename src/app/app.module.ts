@@ -10,12 +10,28 @@ import { SliderComponent } from './components/slider/slider.component';
 import { OwlModule } from "angular-owl-carousel";
 import { StoreComponent } from './pages/store/store.component';
 import { ProductsComponent } from './components/store/products/products.component';
-import { DxButtonModule, DxSelectBoxModule, DxDataGridModule,
-  DxFormModule, DxTextBoxModule, DxValidationGroupModule, DxValidatorModule} from 'devextreme-angular';
+import {
+  DxButtonModule,
+  DxSelectBoxModule,
+  DxDataGridModule,
+  DxFormModule,
+  DxTextBoxModule,
+  DxValidationGroupModule,
+  DxValidatorModule,
+  DxPopupModule,
+  DxNumberBoxModule,
+  DxDateBoxModule, DxTextAreaModule, DxFileUploaderModule, DxCheckBoxModule, DxRadioGroupModule
+} from 'devextreme-angular';
 import { LoginComponent } from './pages/login/login.component';
 import {ApiService} from "./services/ApiService";
 import {HttpClientModule} from "@angular/common/http";
 import { StoresComponent } from './components/store/stores/stores.component';
+import { OrdersComponent } from './components/store/orders/orders.component';
+import { ProfileComponent } from './components/store/profile/profile.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { CartDetailComponent } from './pages/cart-detail/cart-detail.component';
+import {FormsModule} from "@angular/forms";
+import {Ng2CableModule} from "ng2-cable";
 
 @NgModule({
   declarations: [
@@ -28,6 +44,10 @@ import { StoresComponent } from './components/store/stores/stores.component';
     ProductsComponent,
     LoginComponent,
     StoresComponent,
+    OrdersComponent,
+    ProfileComponent,
+    ProductDetailComponent,
+    CartDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +60,16 @@ import { StoresComponent } from './components/store/stores/stores.component';
     DxValidationGroupModule,
     DxValidatorModule,
     DxDataGridModule,
-    HttpClientModule
+    HttpClientModule,
+    DxButtonModule, DxPopupModule,
+    DxNumberBoxModule,
+    DxDateBoxModule,
+    DxTextAreaModule,
+    DxFileUploaderModule,
+    DxCheckBoxModule,
+    DxRadioGroupModule,
+    FormsModule,
+    Ng2CableModule
   ],
   providers: [
     ApiService

@@ -36,9 +36,11 @@
     "express": "^4.16.4",
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
+    "ng2-cable": "^2.0.7",
     "owl.carousel": "^2.3.4",
     "path": "^0.12.7",
     "rxjs": "~6.3.3",
+    "rxjs-compat": "^6.3.3",
     "typescript": "~3.1.1",
     "zone.js": "~0.8.26"
   },

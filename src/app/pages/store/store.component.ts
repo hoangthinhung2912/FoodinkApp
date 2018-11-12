@@ -8,7 +8,7 @@ import {ApiService} from "../../services/ApiService";
   styleUrls: ['./store.component.scss']
 })
 export class StoreComponent implements OnInit {
-  tabClicked: string = 'products';
+  tabClicked: string = 'stores';
   constructor(private apiService: ApiService, private router: Router) { }
 
   ngOnInit() {
@@ -17,7 +17,7 @@ export class StoreComponent implements OnInit {
     }
   }
 
-  x() {
+  sidebarBtnClick() {
     document.getElementById('sidebar').classList.toggle('active');
   }
 

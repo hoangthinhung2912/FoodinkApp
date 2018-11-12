@@ -19,92 +19,12 @@
 </div>
 <div class="container">
   <div class="products-wrap">
-    <div class="product-item">
+    <div class="product-item" *ngFor="let item of products" (click)="onShowProductDetail(item)">
       <div class="item">
         <img src="assets/img/product/product-1.jpg" alt="">
         <div class="item-info">
-          <p>NAME PRODUCT HERE</p>
-          <p>$5.00</p>
-        </div>
-        <div class="item-action">
-          <div class="d-flex mb-3">
-            <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
-            <div class="p-2">
-              <i class="far fa-heart"></i>
-            </div>
-            <div class="p-2">
-              <i class="fas fa-arrows-alt"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product-item">
-      <div class="item">
-        <img src="assets/img/product/product-1.jpg" alt="">
-        <div class="item-info">
-          <p>NAME PRODUCT HERE</p>
-          <p>$5.00</p>
-        </div>
-        <div class="item-action">
-          <div class="d-flex mb-3">
-            <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
-            <div class="p-2">
-              <i class="far fa-heart"></i>
-            </div>
-            <div class="p-2">
-              <i class="fas fa-arrows-alt"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product-item">
-      <div class="item">
-        <img src="assets/img/product/product-1.jpg" alt="">
-        <div class="item-info">
-          <p>NAME PRODUCT HERE</p>
-          <p>$5.00</p>
-        </div>
-        <div class="item-action">
-          <div class="d-flex mb-3">
-            <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
-            <div class="p-2">
-              <i class="far fa-heart"></i>
-            </div>
-            <div class="p-2">
-              <i class="fas fa-arrows-alt"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product-item">
-      <div class="item">
-        <img src="assets/img/product/product-1.jpg" alt="">
-        <div class="item-info">
-          <p>NAME PRODUCT HERE</p>
-          <p>$5.00</p>
-        </div>
-        <div class="item-action">
-          <div class="d-flex mb-3">
-            <div class="mr-auto p-2"><i class="fa fa-shopping-cart">Add to cart</i></div>
-            <div class="p-2">
-              <i class="far fa-heart"></i>
-            </div>
-            <div class="p-2">
-              <i class="fas fa-arrows-alt"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="product-item">
-      <div class="item">
-        <img src="assets/img/product/product-1.jpg" alt="">
-        <div class="item-info">
-          <p class="name">NAME PRODUCT HERE</p>
-          <p>$5.00</p>
+          <p>{{item.name}}</p>
+          <p>{{item.sizes[0].price}} VNĐ</p>
         </div>
         <div class="item-action">
           <div class="d-flex mb-3">

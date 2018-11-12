@@ -1,0 +1,254 @@
+.best-food-wrap {
+  clear: both;
+
+  .title {
+    font-size: 30px;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+  .product-item {
+    width: calc(100%);
+
+    .item {
+      padding: 0px 15px;
+    }
+  }
+
+  /deep/ .owl-nav {
+    position: absolute;
+    top: -75px;
+    font-size: 50px;
+    right: 0px;
+    button {
+      outline: none;
+    }
+    button:hover {
+      background: none;
+      color: grey;
+    }
+  }
+}
+
+.product-item {
+  width: calc(100% / 4 - 24px);
+  margin: 10px 10px;
+  display: inline-block;
+  &:nth-child(5n) {
+    margin-right: 0px !important;
+  }
+
+  .item {
+    img {
+      width: 100%;
+      object-fit: cover;
+      position: relative;
+    }
+
+    .item-info {
+      margin-top: 20px;
+      font-weight: bold;
+
+      p {
+        margin: 5px;
+      }
+    }
+  }
+
+  &:hover {
+    .item {
+      cursor: pointer;
+    }
+  }
+}
+
+.product-details {
+  margin-top: 70px;
+
+  .product-details-img {
+    padding: 20px;
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .galery {
+      margin: 10px 20px;
+      .item {
+        margin: 0 5px;
+      }
+
+      /deep/ .owl-nav {
+        button {
+          outline: none;
+        }
+        button:hover {
+          background: none;
+          color: grey;
+        }
+
+        .owl-prev {
+          position: absolute;
+          top: 8px;
+          left: -20px;
+          font-size: 35px;
+        }
+        .owl-next {
+          position: absolute;
+          top: 8px;
+          left: 100%;
+          font-size: 35px;
+        }
+      }
+    }
+  }
+
+  .product-details-content {
+    padding: 20px;
+
+    .rating-review {
+
+    }
+    .review {
+      span {
+        margin-right: 15px;
+      }
+    }
+    .price {
+      color: red;
+      font-size: 30px;
+      margin: 30px 0px;
+    }
+    .size {
+      margin: 10px 0;
+    }
+    /deep/ .number {
+      width: 80px;
+    }
+    .add-cart-btn {
+      margin: 10px 10px;
+    }
+    .pro-dec-social {
+      margin: 20px 0;
+      button {
+        margin-right: 5px;
+      }
+      .btn-wt {
+        background: #00AAF0;
+        color: white;
+        &:hover {
+          background: white;
+          color: #00AAF0;
+          border: 1px solid #00AAF0;
+        }
+      }
+      .btn-pt {
+        background: #CE1F21;
+        color: white;
+        &:hover {
+          background: white;
+          color: #CE1F21;
+          border: 1px solid #CE1F21;
+        }
+      }
+      .btn-f {
+        background: #435F9F;
+        color: white;
+        &:hover {
+          background: white;
+          color: #435F9F;
+          border: 1px solid #435F9F;
+        }
+      }
+      .btn-gg {
+        background: #E04B34;
+        color: white;
+        &:hover {
+          background: white;
+          color: #E04B34;
+          border: 1px solid #E04B34;
+        }
+      }
+    }
+  }
+
+  .description-review-wrapper {
+    margin: 40px 0;
+    .tags {
+      border-bottom: 1px solid gray;
+      margin: 20px 0;
+      a {
+        text-decoration: none;
+        font-size: 20px;
+        margin: 10px 20px;
+        color: black;
+        font-weight: 600;
+      }
+
+      .active {
+        color: darkred;
+        border-bottom: 2px solid darkred;
+      }
+    }
+    .ratting-form {
+      .star-box {
+        margin: 10px 0;
+      }
+      .add-comment-btn {
+        margin-top: 10px;
+      }
+    }
+
+  }
+
+  .star-defalt {
+    color: darkgray;
+  }
+
+  .star {
+    color: yellow;
+  }
+}
+
+.stars {
+  $block: &;
+  $color-active: #ff7723;
+  $color-inactive: #e7e7e7;
+
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row-reverse;
+
+  &--pointer {
+    #{$block}__label {
+      cursor: pointer;
+    }
+  }
+
+  &__label {
+    padding: 0 5px;
+    color: $color-inactive;
+
+    &:before {
+      content: '\f005';
+      font-family: FontAwesome;
+      font-size: 24px;
+    }
+
+    &:hover {
+      color: $color-active;
+
+      ~ #{$block}__label {
+        color: $color-active;
+      }
+    }
+  }
+
+  &__input {
+    position: absolute;
+    visibility: hidden;
+
+    &:checked ~ #{$block}__label {
+      color: $color-active;
+    }
+  }
+}

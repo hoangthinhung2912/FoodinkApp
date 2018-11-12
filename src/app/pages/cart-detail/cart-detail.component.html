@@ -1,0 +1,89 @@
+<app-header></app-header>
+<div class="container-fluid cart-details">
+  <dx-data-grid
+    [dataSource]="carts"
+    keyExpr="id"
+    [remoteOperations]="false"
+    [allowColumnReordering]="true"
+    [rowAlternationEnabled]="true"
+    [showBorders]="true">
+    <dxo-search-panel
+      [visible]="true"
+      [highlightCaseSensitive]="true"
+    ></dxo-search-panel>
+    <dxi-column dataField="product.name" caption="Product"></dxi-column>
+    <dxi-column dataField="product.pictures[0]" caption="Picture">
+      <div *dxTemplate="let item of 'totalTemplate'">
+        {{item.value}}VND
+      </div>
+    </dxi-column>
+    <dxi-column dataField="size.size" caption="Size"></dxi-column>
+    <dxi-column dataField="size.price" caption="Price"></dxi-column>
+    <dxi-column dataField="quantity" caption="Quantity" cellTemplate="quantityTemplate">
+      <div *dxTemplate="let item of 'quantityTemplate'">
+        <dx-number-box class="number" [showSpinButtons]="true" [min]="1" [(value)]="item.value" (onValueChanged)="onChangeQuantity(item, $event)"></dx-number-box>
+      </div>
+    </dxi-column>
+    <dxi-column cellTemplate="actionTemplates" dataField="id" caption="Action" alignment="center">
+      <div *dxTemplate="let data of 'actionTemplates'">
+        <span (click)="onDeleteItem(data)"><i class="fa fa-trash"></i></span>
+      </div>
+    </dxi-column>
+    <dxo-paging [pageSize]="10"></dxo-paging>
+    <dxo-pager
+      [showPageSizeSelector]="true"
+    ></dxo-pager>
+  </dx-data-grid>
+  <div>Total: {{total}} VNĐ</div>
+  <div class="d-flex justify-content-between">
+    <dx-button type="danger" text="Continue Shopping" (onClick)="onContinousShopping()"></dx-button>
+    <dx-button type="danger" text="Order Now" (onClick)="onOrder()"></dx-button>
+  </div>
+</div>
+<app-footer></app-footer>
+<!--Order popup-->
+<dx-popup
+  title="Popup Title"
+  [(visible)]="isOrderPopup"
+  [width]="500"
+  [height]="300">
+  <div *dxTemplate="let data of 'content'" style="overflow-y: auto; overflow-x: hidden; ">
+    <dx-validation-group>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="field">
+            <div class="label">Address</div>
+            <div class="value">
+              <dx-text-box [(value)]="order.address">
+                <dx-validator>
+                  <dxi-validation-rule type="required" message="Address is required"></dxi-validation-rule>
+                </dx-validator>
+              </dx-text-box>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="field">
+            <div class="label">Phone</div>
+            <div class="value">
+              <dx-text-box [(value)]="order.phone">
+                <dx-validator>
+                  <dxi-validation-rule type="required" message="Phone is required"></dxi-validation-rule>
+                </dx-validator>
+                <dxi-validation-rule
+                  type="pattern"
+                  [pattern]="phonePattern"
+                  message="Phone is incorrect.">
+                </dxi-validation-rule>
+              </dx-text-box>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end btn-actions">
+        <dx-button text="Add" type="success" (onClick)="save($event)"></dx-button>
+        <dx-button text="Cancel" (onClick)="isOrderPopup=false"></dx-button>
+      </div>
+    </dx-validation-group>
+  </div>
+</dx-popup>

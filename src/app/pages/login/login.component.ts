@@ -31,8 +31,12 @@ export class LoginComponent implements OnInit {
       if (data.success) {
         this.user.token = data.auth_token.token;
         localStorage.setItem('token', this.user.token);
-        console.log(localStorage);
-        this.router.navigate(['dashboard/store']);
+        localStorage.setItem('user', JSON.stringify(data.auth_token.user));
+        if (data.auth_token.user.role.name === 'Customer') {
+          this.router.navigate(['products/detail']);
+        } else {
+          this.router.navigate(['dashboard/store']);
+        }
       }
     });
   }
